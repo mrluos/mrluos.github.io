@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="grunt,contrib-unlify,contrib-jshint,contrib-watch,grunt-compass,grunt-autoprefixer," />
 
 
 
@@ -57,15 +57,28 @@
 
 
 
-<meta name="description" content="o or 1 ?">
-<meta property="og:type" content="website">
-<meta property="og:title" content="mrluo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="win 环境下 grunt 安装使用纪要grunt是一款前端自动化的神器，今天记录一下使用的方法。首先要清楚的是grunt是基于nodejs为前提的一个插件，所以如果没有安装nodejs.可以先下载安装。这里假设已经安装完了nodejs,然后我们打开nodejs的命令行程序（记得要使用管理员的权限运行），下面开始安装grunt.  
+安装grunt的命令行插件grunt-cli安装时候使用-g参数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="grunt 使用纪要">
+<meta property="og:url" content="http://yoursite.com/2016/03/21/grunt学习/index.html">
 <meta property="og:site_name" content="mrluo">
-<meta property="og:description" content="o or 1 ?">
+<meta property="og:description" content="win 环境下 grunt 安装使用纪要grunt是一款前端自动化的神器，今天记录一下使用的方法。首先要清楚的是grunt是基于nodejs为前提的一个插件，所以如果没有安装nodejs.可以先下载安装。这里假设已经安装完了nodejs,然后我们打开nodejs的命令行程序（记得要使用管理员的权限运行），下面开始安装grunt.  
+安装grunt的命令行插件grunt-cli安装时候使用-g参数">
+<meta property="og:image" content="http://yoursite.com/2016/03/21/grunt学习/1.png">
+<meta property="og:image" content="http://yoursite.com/2016/03/21/grunt学习/3.png">
+<meta property="og:image" content="http://yoursite.com/2016/03/21/grunt学习/4.png">
+<meta property="og:image" content="http://yoursite.com/2016/03/21/grunt学习/5.png">
+<meta property="og:image" content="http://yoursite.com/2016/03/21/grunt学习/6.png">
+<meta property="og:image" content="http://yoursite.com/2016/03/21/grunt学习/9.png">
+<meta property="og:image" content="http://yoursite.com/2016/03/21/grunt学习/10.png">
+<meta property="og:image" content="http://yoursite.com/2016/03/21/grunt学习/11.png">
+<meta property="og:updated_time" content="2016-03-22T09:08:37.239Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mrluo">
-<meta name="twitter:description" content="o or 1 ?">
+<meta name="twitter:title" content="grunt 使用纪要">
+<meta name="twitter:description" content="win 环境下 grunt 安装使用纪要grunt是一款前端自动化的神器，今天记录一下使用的方法。首先要清楚的是grunt是基于nodejs为前提的一个插件，所以如果没有安装nodejs.可以先下载安装。这里假设已经安装完了nodejs,然后我们打开nodejs的命令行程序（记得要使用管理员的权限运行），下面开始安装grunt.  
+安装grunt的命令行插件grunt-cli安装时候使用-g参数">
+<meta name="twitter:image" content="http://yoursite.com/2016/03/21/grunt学习/1.png">
 
 
 
@@ -83,7 +96,7 @@
   };
 </script>
 
-  <title> mrluo </title>
+  <title> grunt 使用纪要 | mrluo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -104,9 +117,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -163,9 +174,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -185,10 +196,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/03/21/grunt学习/" itemprop="url">
-                  grunt 使用纪要
-                </a>
+                grunt 使用纪要
               
             
           </h1>
@@ -227,9 +235,7 @@
       
 
       
-        
-          
-            <h4 id="win-环境下-grunt-安装使用纪要"><a href="#win-环境下-grunt-安装使用纪要" class="headerlink" title="win 环境下 grunt 安装使用纪要"></a>win 环境下 grunt 安装使用纪要</h4><p>grunt是一款前端自动化的神器，今天记录一下使用的方法。<br>首先要清楚的是grunt是基于nodejs为前提的一个插件，所以如果没有安装nodejs.可以先下载安装。<br>这里假设已经安装完了nodejs,然后我们打开nodejs的命令行程序（记得要使用管理员的权限运行），下面开始安装grunt.  </p>
+        <h4 id="win-环境下-grunt-安装使用纪要"><a href="#win-环境下-grunt-安装使用纪要" class="headerlink" title="win 环境下 grunt 安装使用纪要"></a>win 环境下 grunt 安装使用纪要</h4><p>grunt是一款前端自动化的神器，今天记录一下使用的方法。<br>首先要清楚的是grunt是基于nodejs为前提的一个插件，所以如果没有安装nodejs.可以先下载安装。<br>这里假设已经安装完了nodejs,然后我们打开nodejs的命令行程序（记得要使用管理员的权限运行），下面开始安装grunt.  </p>
 <h4 id="安装grunt的命令行插件grunt-cli"><a href="#安装grunt的命令行插件grunt-cli" class="headerlink" title="安装grunt的命令行插件grunt-cli"></a>安装grunt的命令行插件grunt-cli</h4><p>安装时候使用-g参数进行全局的安装，把插件安装到全局的环境中(npm get prefix 查看全局环境的路径)。  在nodejs cmd 里面输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g  grunt-cli</span><br></pre></td></tr></table></figure></p>
 <p>安装完成后在cmd里输入：grunt 会出现如下的提示，说明grunt-cli安装成功了。<br><img src="/2016/03/21/grunt学习/1.png" alt="1.png" title=""></p>
 <h4 id="建立项目实践使用"><a href="#建立项目实践使用" class="headerlink" title="建立项目实践使用"></a>建立项目实践使用</h4><p>首先建立一个文件夹grunttest,然后在这个文件内建立Gruntfile.js、package.json,最后cmd切换到这个目录里,然后在package.json目前文件的大纲是这样的：<br><img src="/2016/03/21/grunt学习/3.png" alt="3.png" title=""><br>然后往package.json里面输如下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"grunttest"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"devDependencies"</span>:&#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -264,32 +270,47 @@
 <p>如果团队协作开发，是否要将插件上传到代码管理器（git. svn等）上呢？    </p>
 <p>答案是不需要的，我们只需要传package.json文件,别人只需要按照文件中的devDependencies的插件信息来安装对应的插件即可。<br>那么问题来了，难道要一个一个插件的安装?有没有快捷的方法呢。当然是有的。      例如要把上面的grunttest使用的插件安装到test2.只需要把package.json拷贝到test2的目录，  然后npm install 奇迹就会发生,同样插件同样的版本,就是这么简单。<br>（完）</p>
 
-          
-        
       
     </div>
 
     <div>
       
+        
+      
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/grunt/" rel="tag">#grunt</a>
+          
+            <a href="/tags/contrib-unlify/" rel="tag">#contrib-unlify</a>
+          
+            <a href="/tags/contrib-jshint/" rel="tag">#contrib-jshint</a>
+          
+            <a href="/tags/contrib-watch/" rel="tag">#contrib-watch</a>
+          
+            <a href="/tags/grunt-compass/" rel="tag">#grunt-compass</a>
+          
+            <a href="/tags/grunt-autoprefixer/" rel="tag">#grunt-autoprefixer</a>
+          
+        </div>
       
 
       
+
       
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -297,6 +318,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -316,8 +341,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://c.pic.wemepi.com/data.x/2016/3/22/16/0/47/5/d/a/2/c/5da2c6dcfbdf088d2c026547ddf47c30.jpg"
@@ -362,6 +396,23 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#win-环境下-grunt-安装使用纪要"><span class="nav-number">1.</span> <span class="nav-text">win 环境下 grunt 安装使用纪要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装grunt的命令行插件grunt-cli"><span class="nav-number">2.</span> <span class="nav-text">安装grunt的命令行插件grunt-cli</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#建立项目实践使用"><span class="nav-number">3.</span> <span class="nav-text">建立项目实践使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给grunt装入一个心脏（Gruntfile-js的填充）"><span class="nav-number">4.</span> <span class="nav-text">给grunt装入一个心脏（Gruntfile.js的填充）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给Grunt招兵买马"><span class="nav-number">5.</span> <span class="nav-text">给Grunt招兵买马</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#代码混淆和压缩（contrib-unlify）"><span class="nav-number">5.1.</span> <span class="nav-text">代码混淆和压缩（contrib-unlify）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#js代码语法检查（contrib-jshint）"><span class="nav-number">5.2.</span> <span class="nav-text">js代码语法检查（contrib-jshint）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#自动化（contrib-watch）"><span class="nav-number">5.3.</span> <span class="nav-text">自动化（contrib-watch）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编译sass、自动修补属性（grunt-compass-grunt-autoprefixer）"><span class="nav-number">5.4.</span> <span class="nav-text">编译sass、自动修补属性（grunt-compass,grunt-autoprefixer）</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
       
 
     </div>
@@ -446,6 +497,167 @@
   
 
   
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
 
   
 
