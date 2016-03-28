@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="hexo,github,git," />
+  <meta name="keywords" content="hexo,coding,部署," />
 
 
 
@@ -45,16 +45,22 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
 
 
-<meta name="description" content="前言通过hexo基本搭建完成了基本的hexo环境的搭建和本地浏览。这篇文章记录如何结合github实现免费的个人站点的搭建。">
+<meta name="description" content="前言由于使用github有时访问很慢,所以就把主页托管的到coding上，下面记录一下转移的方法。
+step 1 修改主站配置配置主站的_config.yml,修改deploy的repo。1234deploy:  type: git  repo: git@git.coding.net:mrluos/mrluos.git  branch: master
+这里配置使用ssh的方式，使用https部署的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo发布到github">
-<meta property="og:url" content="http://yoursite.com/2016/03/24/hexo发布到github/index.html">
+<meta property="og:title" content="hexo部署到coding">
+<meta property="og:url" content="http://yoursite.com/2016/03/28/hexo部署到coding/index.html">
 <meta property="og:site_name" content="mrluo">
-<meta property="og:description" content="前言通过hexo基本搭建完成了基本的hexo环境的搭建和本地浏览。这篇文章记录如何结合github实现免费的个人站点的搭建。">
-<meta property="og:updated_time" content="2016-03-28T06:21:04.693Z">
+<meta property="og:description" content="前言由于使用github有时访问很慢,所以就把主页托管的到coding上，下面记录一下转移的方法。
+step 1 修改主站配置配置主站的_config.yml,修改deploy的repo。1234deploy:  type: git  repo: git@git.coding.net:mrluos/mrluos.git  branch: master
+这里配置使用ssh的方式，使用https部署的">
+<meta property="og:updated_time" content="2016-03-28T06:27:39.173Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo发布到github">
-<meta name="twitter:description" content="前言通过hexo基本搭建完成了基本的hexo环境的搭建和本地浏览。这篇文章记录如何结合github实现免费的个人站点的搭建。">
+<meta name="twitter:title" content="hexo部署到coding">
+<meta name="twitter:description" content="前言由于使用github有时访问很慢,所以就把主页托管的到coding上，下面记录一下转移的方法。
+step 1 修改主站配置配置主站的_config.yml,修改deploy的repo。1234deploy:  type: git  repo: git@git.coding.net:mrluos/mrluos.git  branch: master
+这里配置使用ssh的方式，使用https部署的">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -66,7 +72,7 @@
 
 
 
-  <title> hexo发布到github | mrluo </title>
+  <title> hexo部署到coding | mrluo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -222,7 +228,7 @@
             
             
               
-                hexo发布到github
+                hexo部署到coding
               
             
           </h1>
@@ -231,8 +237,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-03-24T17:52:22+08:00" content="2016-03-24">
-              2016-03-24
+            <time itemprop="dateCreated" datetime="2016-03-28T14:13:39+08:00" content="2016-03-28">
+              2016-03-28
             </time>
           </span>
 
@@ -257,8 +263,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/24/hexo发布到github/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/24/hexo发布到github/" itemprop="commentsCount"></span>
+                <a href="/2016/03/28/hexo部署到coding/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/28/hexo部署到coding/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -277,23 +283,13 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>通过<a href="/2016/03/23/hexo基本搭建">hexo基本搭建</a>完成了基本的hexo环境的搭建和本地浏览。<br>这篇文章记录如何结合github实现免费的个人站点的搭建。<br><a id="more"></a></p>
-<h4 id="github仓库创建"><a href="#github仓库创建" class="headerlink" title="github仓库创建"></a>github仓库创建</h4><p>首先打开<a href="https://github.com/" target="_blank" rel="external">git主页</a><br>注册一个账号，然后创建（点击+ new repositories按钮）一个github用户名.github.io的仓库。<br>例如我的是<code>mrluos.github.io</code></p>
-<h4 id="配置hexo"><a href="#配置hexo" class="headerlink" title="配置hexo"></a>配置hexo</h4><h5 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h5><p>打开站点目录下的_config.yml文件,找到deploy节点配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:mrluos/mrluos.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
-<p>repo就是刚才创建的以你用户名字为仓库的连接。</p>
-<h5 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h5><p>生成ssh访问的key   </p>
-<h5 id="1-查看是否存在ssh-key"><a href="#1-查看是否存在ssh-key" class="headerlink" title="1.查看是否存在ssh key"></a><code>1.查看是否存在ssh key</code></h5><p>在站点文件的根目录下，右键鼠标点击<code>Git Branch Here</code>,打开git的命令行窗口<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ll ~/.ssh/</span><br></pre></td></tr></table></figure></p>
-<p>如果有id_rsa、id_rsa.pub文件，说明存在了ssh key.删除.</p>
-<h5 id="2-生成ssh-key"><a href="#2-生成ssh-key" class="headerlink" title="2.生成ssh key"></a><code>2.生成ssh key</code></h5><p>输入以下code,在-C后面替换成你的邮箱（github注册时候的邮箱账号），然后回车。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">"example@example.com"</span></span><br></pre></td></tr></table></figure></p>
-<p>会出现提示，要求输入保存key的文件和key的密码，可以直接一路回车直接默认，密码回车为空,至此key生成完毕。</p>
-<h5 id="3-加入ssh-agent"><a href="#3-加入ssh-agent" class="headerlink" title="3.加入ssh-agent"></a><code>3.加入ssh-agent</code></h5><p>添加ssh key 到ssh-agent.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span> $(ssh-agent <span class="_">-s</span>)</span><br></pre></td></tr></table></figure></p>
-<p>回车会出现Agent pid XXXXX。说明加入成功了。</p>
-<h5 id="step-3"><a href="#step-3" class="headerlink" title="step 3"></a>step 3</h5><p>上面的操作是配置本地的文件和生成ssh 访问key.接下来是把本地生成的key.添加到github账户上,在上面的终端里输入拷贝命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure></p>
-<p>然后登陆到github里，打开创建的你名字的.github.io的仓库找1.<code>setting</code>-&gt;<code>Deploy keys</code>-&gt;<code>add deploy key</code>.<br>输入title（随意）key,粘贴上面复制的key.然后点击<code>Add key</code>.至此添加ssh key.操作完成。<br>回到终端。输入命令测试是否连接成功了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line">出现如下提示</span><br><span class="line">Hi xxx/xxx.github.io! You<span class="string">''</span>ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line">说明可以成功连接了...</span><br></pre></td></tr></table></figure></p>
-<p>以上配置是为了把hexo生成的文件发布到你的github主页上。发布方法就是hexo d,发布前一般是先清理然后重新生成最后发布。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//清理后重新生成然后再本地查看效果</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br><span class="line">//如果没有问题则</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
-<p><strong>(完)</strong></p>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://help.github.com/articles/checking-for-existing-ssh-keys/" target="_blank" rel="external"><code>GitHub Help</code></a></p>
-</span>
+        <span itemprop="articleBody"><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>由于使用github有时访问很慢,所以就把主页托管的到coding上，下面记录一下转移的方法。</p>
+<h4 id="step-1-修改主站配置"><a href="#step-1-修改主站配置" class="headerlink" title="step 1 修改主站配置"></a>step 1 修改主站配置</h4><p><code>配置主站</code>的_config.yml,修改deploy的repo。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@git.coding.net:mrluos/mrluos.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<blockquote><p>这里配置使用ssh的方式，使用https部署的时候总是有问题。</p>
+</blockquote> 
+<h4 id="step-2-创建coding的仓库。"><a href="#step-2-创建coding的仓库。" class="headerlink" title="step 2 创建coding的仓库。"></a>step 2 创建coding的仓库。</h4><p>1.首先到<a href="https://coding.net/" target="_blank" rel="external">coding</a>注册一个账号并且激活，然后创建一个项目创库。<br>2.在本地生成一个ssh的key.<a href="/2016/03/24/hexo发布到github">如何生成？</a>。<br>3.添加ssh key 到coding。<br><blockquote><p>由于coding的规则，这里的ssh key是添加到账户下的ssh公匙，不是项目的。<br>具体操作: <code>账户</code>-&gt;<code>SSH公匙</code>-&gt;<code>添加</code></p>
+</blockquote></p>
+<h4 id="step-3-创建coding的仓库。"><a href="#step-3-创建coding的仓库。" class="headerlink" title="step 3 创建coding的仓库。"></a>step 3 创建coding的仓库。</h4></span>
       
     </div>
 
@@ -303,9 +299,9 @@
           
             <a href="/tags/hexo/" rel="tag">#hexo</a>
           
-            <a href="/tags/github/" rel="tag">#github</a>
+            <a href="/tags/coding/" rel="tag">#coding</a>
           
-            <a href="/tags/git/" rel="tag">#git</a>
+            <a href="/tags/部署/" rel="tag">#部署</a>
           
         </div>
       
@@ -314,17 +310,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/23/hexo基本搭建/" rel="next" title="hexo基本搭建">
-                <i class="fa fa-chevron-left"></i> hexo基本搭建
+              <a href="/2016/03/25/hexo-NexT主题的配置和修改/" rel="next" title="hexo NexT主题的配置和修改">
+                <i class="fa fa-chevron-left"></i> hexo NexT主题的配置和修改
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/25/hexo替换皮肤/" rel="prev" title="hexo替换皮肤">
-                hexo替换皮肤 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -349,8 +341,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/03/24/hexo发布到github/"
-                   data-title="hexo发布到github" data-url="http://yoursite.com/2016/03/24/hexo发布到github/">
+              <div class="ds-thread" data-thread-key="2016/03/28/hexo部署到coding/"
+                   data-title="hexo部署到coding" data-url="http://yoursite.com/2016/03/28/hexo部署到coding/">
               </div>
             
           </div>
@@ -435,7 +427,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#github仓库创建"><span class="nav-number">2.</span> <span class="nav-text">github仓库创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置hexo"><span class="nav-number">3.</span> <span class="nav-text">配置hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#step1"><span class="nav-number">3.1.</span> <span class="nav-text">step1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#step2"><span class="nav-number">3.2.</span> <span class="nav-text">step2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-查看是否存在ssh-key"><span class="nav-number">3.3.</span> <span class="nav-text">1.查看是否存在ssh key</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-生成ssh-key"><span class="nav-number">3.4.</span> <span class="nav-text">2.生成ssh key</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-加入ssh-agent"><span class="nav-number">3.5.</span> <span class="nav-text">3.加入ssh-agent</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#step-3"><span class="nav-number">3.6.</span> <span class="nav-text">step 3</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-1-修改主站配置"><span class="nav-number">2.</span> <span class="nav-text">step 1 修改主站配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-2-创建coding的仓库。"><span class="nav-number">3.</span> <span class="nav-text">step 2 创建coding的仓库。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-3-创建coding的仓库。"><span class="nav-number">4.</span> <span class="nav-text">step 3 创建coding的仓库。</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
