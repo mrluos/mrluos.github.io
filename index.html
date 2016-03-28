@@ -281,17 +281,13 @@
 
       
         
-          <span itemprop="articleBody">
-            
-              <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>由于使用github有时访问很慢,所以就把主页托管的到coding上，下面记录一下转移的方法。</p>
+          <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>由于使用github有时访问很慢,所以就把主页托管的到coding上，下面记录一下转移的方法。</p>
 <h4 id="step-1-修改主站配置"><a href="#step-1-修改主站配置" class="headerlink" title="step 1 修改主站配置"></a>step 1 修改主站配置</h4><p><code>配置主站</code>的_config.yml,修改deploy的repo。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@git.coding.net:mrluos/mrluos.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
-<blockquote><p>这里配置使用ssh的方式，使用https部署的时候总是有问题。</p>
-</blockquote> 
-<h4 id="step-2-创建coding的仓库。"><a href="#step-2-创建coding的仓库。" class="headerlink" title="step 2 创建coding的仓库。"></a>step 2 创建coding的仓库。</h4><p>1.首先到<a href="https://coding.net/" target="_blank" rel="external">coding</a>注册一个账号并且激活，然后创建一个项目创库。<br>2.在本地生成一个ssh的key.<a href="/2016/03/24/hexo发布到github">如何生成？</a>。<br>3.添加ssh key 到coding。<br><blockquote><p>由于coding的规则，这里的ssh key是添加到账户下的ssh公匙，不是项目的。<br>具体操作: <code>账户</code>-&gt;<code>SSH公匙</code>-&gt;<code>添加</code></p>
-</blockquote></p>
-<h4 id="step-3-创建coding的仓库。"><a href="#step-3-创建coding的仓库。" class="headerlink" title="step 3 创建coding的仓库。"></a>step 3 创建coding的仓库。</h4>
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/28/hexo部署到coding/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
