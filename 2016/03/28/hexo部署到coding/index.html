@@ -53,7 +53,7 @@ step 1 修改主站配置配置主站的_config.yml,修改deploy的repo。1234de
 <meta property="og:site_name" content="mrluo">
 <meta property="og:description" content="前言由于使用github有时访问很慢,所以就把主页托管的到coding上，下面记录一下转移的方法。
 step 1 修改主站配置配置主站的_config.yml,修改deploy的repo。1234deploy:  type: git  repo: git@git.coding.net:mrluos/mrluos.git  branch: master">
-<meta property="og:updated_time" content="2016-03-28T07:07:59.764Z">
+<meta property="og:updated_time" content="2016-03-28T08:00:17.974Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo部署到coding">
 <meta name="twitter:description" content="前言由于使用github有时访问很慢,所以就把主页托管的到coding上，下面记录一下转移的方法。
@@ -284,11 +284,11 @@ step 1 修改主站配置配置主站的_config.yml,修改deploy的repo。1234de
 <h4 id="step-1-修改主站配置"><a href="#step-1-修改主站配置" class="headerlink" title="step 1 修改主站配置"></a>step 1 修改主站配置</h4><p><code>配置主站</code>的_config.yml,修改deploy的repo。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@git.coding.net:mrluos/mrluos.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <blockquote><p>这里配置使用ssh的方式，使用https部署的时候总是有问题。</p>
-</blockquote> 
+</blockquote>  
 <h4 id="step-2-创建coding的仓库。"><a href="#step-2-创建coding的仓库。" class="headerlink" title="step 2 创建coding的仓库。"></a>step 2 创建coding的仓库。</h4><p>1.首先到<a href="https://coding.net/" target="_blank" rel="external">coding</a>注册一个账号并且激活，然后创建一个（公开类型）项目仓库。<br>2.在本地生成一个ssh的key.<a href="/2016/03/24/hexo发布到github">如何生成？</a>。<br>3.添加ssh key 到coding。<br><blockquote><p>由于coding的规则，这里的ssh key是添加到账户下的ssh公匙，不是项目的。<br>具体操作: <code>账户</code>-&gt;<code>SSH公匙</code>-&gt;<code>添加</code></p>
 </blockquote><br>添加完成以后就可以部署到coding上面了。</p>
-<h4 id="step-3-添加演示"><a href="#step-3-添加演示" class="headerlink" title="step 3 添加演示"></a>step 3 添加演示</h4><p>上面部署完成之后,还不能直接访问需要添加一个演示。<br>1.在coding中切换到项目,点击<code>演示</code>,点击<code>开始检测</code>选择演示内存，服务器选择香港，然后<code>开启演示</code>。<br>2.修改域名为仓库名.coding.io,编译部署-&gt;选择高级选项，选择运行环境html,勾选自动部署，然后点击<code>一键部署</code>。  </p>
-<h3 id="step-4-自动更新演示"><a href="#step-4-自动更新演示" class="headerlink" title="step 4 自动更新演示"></a>step 4 自动更新演示</h3><p>在每次提交更新的时候能自动更新演示平台的代码，需要添加webhook.<br>1.点击项目仓库的<code>设置</code>，有个<code>webhook</code>的选项，然后url添加你的站点访问的地址例如我的：<a href="http://mrluos.coding.io/,然后加入一个‘_’下划线" target="_blank" rel="external">http://mrluos.coding.io/,然后加入一个‘_’下划线</a><br>token填写。<br>2.点击<code>演示</code>菜单，点击<code>环境变量</code>，变量名：WEBHOOK_TOKEN，值：，点击添加。</p>
+<h4 id="step-3-添加演示"><a href="#step-3-添加演示" class="headerlink" title="step 3 添加演示"></a>step 3 添加演示</h4><p>上面部署完成之后,还不能直接访问需要添加一个演示。<br>1.在coding中切换到项目,点击<code>演示</code>,点击<code>开始检测</code>选择演示内存，服务器选择香港，然后<code>开启演示</code>。<br>2.修改域名为仓库名.coding.io,编译部署-&gt;选择高级选项，选择运行环境html,勾选自动部署，然后点击<code>一键部署</code>。</p>
+<h4 id="step-4-自动更新演示"><a href="#step-4-自动更新演示" class="headerlink" title="step 4 自动更新演示"></a>step 4 自动更新演示</h4><p>在每次提交更新的时候能自动更新演示平台的代码，需要添加webhook.<br>1.点击项目仓库的<code>设置</code>，有个<code>webhook</code>的选项。<br>url   填写你的站点访问的地址例如我的：<a href="http://mrluos.coding.io/" target="_blank" rel="external">http://mrluos.coding.io/</a>,然后加入一个‘_’下划线。<br>token 填写{{TOKEN}}<br>2.点击<code>演示</code>菜单，点击<code>环境变量</code>，变量名：WEBHOOK_TOKEN，值：{{TOKEN}}  ，点击添加。</p>
 </span>
       
     </div>
@@ -427,7 +427,7 @@ step 1 修改主站配置配置主站的_config.yml,修改deploy的repo。1234de
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-1-修改主站配置"><span class="nav-number">2.</span> <span class="nav-text">step 1 修改主站配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-2-创建coding的仓库。"><span class="nav-number">3.</span> <span class="nav-text">step 2 创建coding的仓库。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-3-添加演示"><span class="nav-number">4.</span> <span class="nav-text">step 3 添加演示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step-4-自动更新演示"><span class="nav-number"></span> <span class="nav-text">step 4 自动更新演示</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-1-修改主站配置"><span class="nav-number">2.</span> <span class="nav-text">step 1 修改主站配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-2-创建coding的仓库。"><span class="nav-number">3.</span> <span class="nav-text">step 2 创建coding的仓库。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-3-添加演示"><span class="nav-number">4.</span> <span class="nav-text">step 3 添加演示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-4-自动更新演示"><span class="nav-number">5.</span> <span class="nav-text">step 4 自动更新演示</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
