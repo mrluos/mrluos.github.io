@@ -53,7 +53,7 @@
 <meta property="og:site_name" content="mrluo">
 <meta property="og:description" content="前言通过前面（hexo基本搭建 hexo发布到github）的折腾，现在已经把个人的站点搭建起来了，同时也能发布到github上，这篇文章记录一下如果看不顺眼站点的布局想要换一个该如何操作。 
 开始改变step 1 选择主题从hexo官方皮肤里找到你心仪的主题样式，这里我使用的NexT。">
-<meta property="og:updated_time" content="2016-03-25T06:30:53.662Z">
+<meta property="og:updated_time" content="2016-03-28T04:19:27.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo替换皮肤">
 <meta name="twitter:description" content="前言通过前面（hexo基本搭建 hexo发布到github）的折腾，现在已经把个人的站点搭建起来了，同时也能发布到github上，这篇文章记录一下如果看不顺眼站点的布局想要换一个该如何操作。 
@@ -280,13 +280,14 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>通过前面（<a href="!--￼3--">hexo基本搭建</a> <a href="!--￼4--">hexo发布到github</a>）的折腾，现在已经把个人的站点搭建起来了，同时也能发布到github上，这篇文章记录一下如果看不顺眼站点的布局想要换一个该如何操作。 </p>
+        <span itemprop="articleBody"><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>通过前面（<a href="/2016/03/23/hexo基本搭建">hexo基本搭建</a> <a href="/2016/03/24/hexo发布到github">hexo发布到github</a>）的折腾，现在已经把个人的站点搭建起来了，同时也能发布到github上，这篇文章记录一下如果看不顺眼站点的布局想要换一个该如何操作。 </p>
 <h4 id="开始改变"><a href="#开始改变" class="headerlink" title="开始改变"></a>开始改变</h4><h5 id="step-1-选择主题"><a href="#step-1-选择主题" class="headerlink" title="step 1 选择主题"></a>step 1 选择主题</h5><p>从<a href="https://hexo.io/themes/" target="_blank" rel="external">hexo官方皮肤</a>里找到你心仪的主题样式，这里我使用的<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT</a>。<br><a id="more"></a></p>
 <h5 id="step-2-安装主题"><a href="#step-2-安装主题" class="headerlink" title="step 2 安装主题"></a>step 2 安装主题</h5><p> 打开<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT</a>的github项目主页，这里提供2种安装的方法：<br><strong>plan A</strong><br>git clone ,打开git终端定位到你的站点，然后使用clone。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> your-web-site</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure></p>
 <p><strong>plan B</strong><br>下载稳定版本的主题文件<br>1.从<a href="https://github.com/iissnan/hexo-theme-next/releases" target="_blank" rel="external">发布版本</a>下载next主题Source Code (zip)，然后解压出来。<br>2.在你的站点的themes目录下新建一个next文件夹。<br>3.复制next文件夹内的所有文件到你的站点目录themes/next/里面。</p>
 <h5 id="step-3-配置"><a href="#step-3-配置" class="headerlink" title="step 3 配置"></a>step 3 配置</h5><p>操作完成上面的步骤后，接着是配置使用下载的皮肤。<br>打开主站根目录下的_config.yml文件，在theme配置节点启用next.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure></p>
 <p>然后重新生成和启动服务查看效果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure></p>
-<p>至此就完成了皮肤的更换。<br><strong>（完）</strong></p>
+<p>至此就完成了皮肤的更换。  </p>
+<p><strong>（完）</strong></p>
 <h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT Doc</a></p>
 </span>
       

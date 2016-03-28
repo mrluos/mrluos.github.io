@@ -51,7 +51,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/24/hexo发布到github/index.html">
 <meta property="og:site_name" content="mrluo">
 <meta property="og:description" content="前言通过hexo基本搭建完成了基本的hexo环境的搭建和本地浏览。这篇文章记录如何结合github实现免费的个人站点的搭建。">
-<meta property="og:updated_time" content="2016-03-25T03:45:58.046Z">
+<meta property="og:updated_time" content="2016-03-28T04:20:15.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo发布到github">
 <meta name="twitter:description" content="前言通过hexo基本搭建完成了基本的hexo环境的搭建和本地浏览。这篇文章记录如何结合github实现免费的个人站点的搭建。">
@@ -277,7 +277,7 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>通过<a href="!--￼7--">hexo基本搭建</a>完成了基本的hexo环境的搭建和本地浏览。<br>这篇文章记录如何结合github实现免费的个人站点的搭建。<br><a id="more"></a></p>
+        <span itemprop="articleBody"><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>通过<a href="/2016/03/23/hexo基本搭建">hexo基本搭建</a>完成了基本的hexo环境的搭建和本地浏览。<br>这篇文章记录如何结合github实现免费的个人站点的搭建。<br><a id="more"></a></p>
 <h4 id="github仓库创建"><a href="#github仓库创建" class="headerlink" title="github仓库创建"></a>github仓库创建</h4><p>首先打开<a href="https://github.com/" target="_blank" rel="external">git主页</a><br>注册一个账号，然后创建（点击+ new repositories按钮）一个github用户名.github.io的仓库。<br>例如我的是<code>mrluos.github.io</code></p>
 <h4 id="配置hexo"><a href="#配置hexo" class="headerlink" title="配置hexo"></a>配置hexo</h4><h5 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h5><p>打开站点目录下的_config.yml文件,找到deploy节点配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:mrluos/mrluos.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
 <p>repo就是刚才创建的以你用户名字为仓库的连接。</p>
