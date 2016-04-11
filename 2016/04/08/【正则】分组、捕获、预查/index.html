@@ -3,26 +3,35 @@
 <head>
     <meta charset="utf-8">
     
-    <title>hexo NexT主题的配置和修改 | mrluo</title>
+    <title>【正则】分组、捕获、预查 | mrluo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="前言通过前面（hexo替换皮肤）的搭建，现在已经能够自由的替换不同的Style了，但是不同的主题都提供一个主题的配置,这篇文章是记录NexT主题的配置和修改。
-修改配置下面介绍一些基本的配置的修改，打开next/_config.yml文件：  
-1.设置favicon.icon？把favicon.ico放到站点的source的目录下。">
+    <meta name="description" content="前言上一篇正则表达式我们介绍了正则表达式的基本规则，这篇主要是记录关于正则表达式里的捕获。
+捕获在上一篇中介绍了使用小括号包围起来的表达式,会捕获匹配的内容到默认的分组中。  
+
+捕获是指把匹配的内容进行存储并编号，方面后续的使用。
+
+非捕获在实际实用中我们需要对字符进行分组匹配但是后续不需要操作匹配的内容，只是查找，如果我们使用（abc）这种模式明显就很浪费。这里就引出只匹配不捕获的表达式：(?">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo NexT主题的配置和修改">
-<meta property="og:url" content="http://yoursite.com/2016/03/25/hexo-NexT主题的配置和修改/index.html">
+<meta property="og:title" content="【正则】分组、捕获、预查">
+<meta property="og:url" content="http://yoursite.com/2016/04/08/【正则】分组、捕获、预查/index.html">
 <meta property="og:site_name" content="mrluo">
-<meta property="og:description" content="前言通过前面（hexo替换皮肤）的搭建，现在已经能够自由的替换不同的Style了，但是不同的主题都提供一个主题的配置,这篇文章是记录NexT主题的配置和修改。
-修改配置下面介绍一些基本的配置的修改，打开next/_config.yml文件：  
-1.设置favicon.icon？把favicon.ico放到站点的source的目录下。">
-<meta property="og:image" content="http://yoursite.com/css/images/hexo.svg">
-<meta property="og:updated_time" content="2016-03-31T03:28:46.787Z">
+<meta property="og:description" content="前言上一篇正则表达式我们介绍了正则表达式的基本规则，这篇主要是记录关于正则表达式里的捕获。
+捕获在上一篇中介绍了使用小括号包围起来的表达式,会捕获匹配的内容到默认的分组中。  
+
+捕获是指把匹配的内容进行存储并编号，方面后续的使用。
+
+非捕获在实际实用中我们需要对字符进行分组匹配但是后续不需要操作匹配的内容，只是查找，如果我们使用（abc）这种模式明显就很浪费。这里就引出只匹配不捕获的表达式：(?">
+<meta property="og:image" content="http://yoursite.com/css/images/regex.jpg">
+<meta property="og:updated_time" content="2016-04-09T02:29:32.048Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo NexT主题的配置和修改">
-<meta name="twitter:description" content="前言通过前面（hexo替换皮肤）的搭建，现在已经能够自由的替换不同的Style了，但是不同的主题都提供一个主题的配置,这篇文章是记录NexT主题的配置和修改。
-修改配置下面介绍一些基本的配置的修改，打开next/_config.yml文件：  
-1.设置favicon.icon？把favicon.ico放到站点的source的目录下。">
-<meta name="twitter:image" content="http://yoursite.com/css/images/hexo.svg">
+<meta name="twitter:title" content="【正则】分组、捕获、预查">
+<meta name="twitter:description" content="前言上一篇正则表达式我们介绍了正则表达式的基本规则，这篇主要是记录关于正则表达式里的捕获。
+捕获在上一篇中介绍了使用小括号包围起来的表达式,会捕获匹配的内容到默认的分组中。  
+
+捕获是指把匹配的内容进行存储并编号，方面后续的使用。
+
+非捕获在实际实用中我们需要对字符进行分组匹配但是后续不需要操作匹配的内容，只是查找，如果我们使用（abc）这种模式明显就很浪费。这里就引出只匹配不捕获的表达式：(?">
+<meta name="twitter:image" content="http://yoursite.com/css/images/regex.jpg">
     
 
     
@@ -195,7 +204,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 </aside>
 
             
-            <section id="main"><article id="post-hexo-NexT主题的配置和修改" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-【正则】分组、捕获、预查" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -204,7 +213,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
                 
     
         <h1 class="article-title" itemprop="name">
-            hexo NexT主题的配置和修改
+            【正则】分组、捕获、预查
         </h1>
     
 
@@ -212,8 +221,8 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/03/25/hexo-NexT主题的配置和修改/">
-            <time datetime="2016-03-25T04:19:44.000Z" itemprop="datePublished">2016-03-25</time>
+        <a href="/2016/04/08/【正则】分组、捕获、预查/">
+            <time datetime="2016-04-08T03:58:01.000Z" itemprop="datePublished">2016-04-08</time>
         </a>
     </div>
 
@@ -221,13 +230,13 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
                     
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/hexo/">hexo</a>
+        <a class="article-category-link" href="/categories/javascript/">javascript</a>
     </div>
 
                     
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/hexo/">hexo</a>, <a class="tag-link" href="/tags/next/">next</a>
+        <a class="tag-link" href="/tags/js/">js</a>, <a class="tag-link" href="/tags/正则表达式/">正则表达式</a>
     </div>
 
                 </div>
@@ -236,21 +245,181 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>通过前面（<a href="/2016/03/23/hexo替换皮肤">hexo替换皮肤</a>）的搭建，现在已经能够自由的替换不同的Style了，但是不同的主题都提供一个主题的配置,这篇文章是记录NexT主题的配置和修改。</p>
-<h4 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h4><p>下面介绍一些基本的配置的修改，打开next/_config.yml文件：  </p>
-<h5 id="1-设置favicon-icon？"><a href="#1-设置favicon-icon？" class="headerlink" title="1.设置favicon.icon？"></a><strong>1.设置favicon.icon？</strong></h5><p>把favicon.ico放到站点的source的目录下。<br><a id="more"></a></p>
-<h5 id="2-设置站点的成立时间？"><a href="#2-设置站点的成立时间？" class="headerlink" title="2.设置站点的成立时间？"></a><strong>2.设置站点的成立时间？</strong></h5><p>在文件中找到#since节点，填写一个时间即可,例如：since: 2015  </p>
-<h5 id="3-配置菜单栏目"><a href="#3-配置菜单栏目" class="headerlink" title="3.配置菜单栏目?"></a><strong>3.配置菜单栏目?</strong></h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">menu:  </span><br><span class="line">  home: /  s</span><br><span class="line">  categories: /categories  </span><br><span class="line">  <span class="comment">#about: /about  </span></span><br><span class="line">  archives: /archives  </span><br><span class="line">  tags: /tags  </span><br><span class="line">  <span class="comment">#commonweal: /404.html  </span></span><br><span class="line">  XXX: /路径</span><br></pre></td></tr></table></figure>
-<blockquote><p>若站点运行在子目录中，请将链接前缀的 / 去掉<br>默认只有archives和home目录页面，其他的页面需要自己创建</p>
-</blockquote>  
-<p>创建不存在的page<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new page about </span><br><span class="line">hexo new page categories</span><br><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure></p>
-<p>404页面只需要在source/下新建一个404.html即可。  </p>
-<h5 id="4-添加categories和tags目录页的内容"><a href="#4-添加categories和tags目录页的内容" class="headerlink" title="4.添加categories和tags目录页的内容?"></a><strong>4.添加categories和tags目录页的内容?</strong></h5><p><code>hexo new page XXXX</code> 创建的页面默认是没有填充内容，如何自动统计当前站点的所有的categories或者tags，并展示出所有的内容呢?<br>1.打开/source/tags/index.md在— 和—之间加入一个type:tags<br>2.打开/source/categories/index.md在— 和—之间加入一个type:categories<br>例如这样<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories (如果是tags页，这里就写tags.)</span><br><span class="line">date: 2016-03-25 14:51:12</span><br><span class="line"><span class="built_in">type</span>: categories (如果是tags页，这里就写tags.)</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
-<h5 id="5-切换不同的主题"><a href="#5-切换不同的主题" class="headerlink" title="5.切换不同的主题?"></a><strong>5.切换不同的主题?</strong></h5><p>找到<code>scheme</code>配置节点，可选值有 Muse| Mist| Pisces。  </p>
-<h5 id="6-设置自己的头像"><a href="#6-设置自己的头像" class="headerlink" title="6.设置自己的头像?"></a><strong>6.设置自己的头像?</strong></h5><p>找到custom_logo配置节点，在<code>image</code>后面填写头像的链接</p>
-<h5 id="7-设置代码高亮"><a href="#7-设置代码高亮" class="headerlink" title="7.设置代码高亮?"></a><strong>7.设置代码高亮?</strong></h5><p>找到<code>highlight_theme</code>配置节点，可以选择normal | night | night eighties | night blue | night bright。</p>
-<p><strong>（完）</strong></p>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT Doc</a></p>
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>上一篇<a href="/2016/04/08/正则表达式">正则表达式</a>我们介绍了正则表达式的基本规则，这篇主要是记录关于正则表达式里的捕获。</p>
+<h4 id="捕获"><a href="#捕获" class="headerlink" title="捕获"></a>捕获</h4><p>在上一篇中介绍了使用小括号包围起来的表达式,会捕获匹配的内容到默认的分组中。  </p>
+<blockquote>
+<p>捕获是指把匹配的内容进行存储并编号，方面后续的使用。</p>
+</blockquote>
+<h4 id="非捕获"><a href="#非捕获" class="headerlink" title="非捕获"></a>非捕获</h4><p>在实际实用中我们需要对字符进行分组匹配但是后续不需要操作匹配的内容，只是查找，如果我们使用（abc）这种模式明显就很浪费。<br>这里就引出只匹配不捕获的表达式：<br><strong>(?:abc)</strong> ： 匹配abc.但是不对匹配的内容进行捕获。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.match(<span class="regexp">/industr(?:i|ies)/g</span>); <span class="comment">//匹配industry 或者 industries</span></span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h4 id="预查"><a href="#预查" class="headerlink" title="预查"></a>预查</h4><p>在正则表达式中，预查（也叫断言）包括正向预查，反向预查,预查的特点是不消耗字符，所以也叫零宽度预查(断言).<br>什么叫不消耗字符,看下面的例子:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s=<span class="string">"test"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/te(?=s)t/</span>.test(s)); <span class="comment">//false;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/te(?=s)st/</span>.test(s)); <span class="comment">//true;</span></span><br></pre></td></tr></table></figure></p>
+<p>表达式(?=s)意思是正向肯定预查，在这里的意思是确定e后面的字符是s,如果不是s这个e就不会被匹配（作为匹配e字符的条件）因为不是所有的s字符后面都会跟着e的，关于这个表达式的详细解释我们后面再讨论。<br>这里我们想要突出的意思是 <strong>console.log(/te(?=s)t/.test(s))</strong>匹配失败，原因就是(?=s)并不会把s这个字符匹配出来（消耗掉），而是作为匹配字符e的前置条件。<br>如果还不明白我们可以看看正常的消耗字符的匹配<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'test'</span></span><br><span class="line">str.match(<span class="regexp">/\w&#123;1&#125;(?:\w&#123;1&#125;)/g</span>);<span class="comment">//["te", "st"]</span></span><br><span class="line"><span class="comment">//当\w&#123;1&#125;匹配到t,(?:\w&#123;1&#125;)匹配到e,这个时候本轮匹配结束，下轮匹配从s开始，并不是从e，说明了e已经被消耗掉了。</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>基维百科：预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。</p>
+</blockquote>
+<h5 id="模拟匹配过程"><a href="#模拟匹配过程" class="headerlink" title="模拟匹配过程"></a>模拟匹配过程</h5><p>为了更好的理解消耗字符和不消耗字符匹配的区别，做了下面的模拟匹配过程。<br><strong>消耗字符</strong>的匹配的流程大概就是这样的一个过程(表达式 <code>\w{1}(?:\w{1})</code>,字符串<code>&#39;test&#39;</code>)：</p>
+<table>
+<thead>
+<tr>
+<th>轮数</th>
+<th>过程</th>
+<th>结束位置</th>
+<th>本轮结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>指针走到第一位，\w{1}匹配到字符’t’,<br> (?:\w{1})匹配到字符’e’,<br>满足表达式的匹配，本轮结束</td>
+<td>字符e</td>
+<td>te</td>
+</tr>
+<tr>
+<td>2</td>
+<td>指针从e往后一位开始(字符s)，<br>\w{1}匹配到字符s, (?:\w{1})匹配到字符t,<br>满足表达式的匹配，本轮结束</td>
+<td>字符t</td>
+<td>st</td>
+</tr>
+<tr>
+<td>3</td>
+<td>指针从t字符往后一位,没有数据结束所有的表达式匹配。</td>
+<td>无</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p>最后的结果为[‘te’,’st’];  </p>
+<p><strong>不消耗字符</strong>的匹配的流程大概就是这样的一个过程(表达式<code>\w{1}(?=\w{1})</code>,字符串<code>&#39;test&#39;</code>)：</p>
+<table>
+<thead>
+<tr>
+<th>轮数</th>
+<th>过程</th>
+<th>结束位置</th>
+<th>本轮结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>指针走到第一位，\w{1}匹配到字符’t’，<br>同时(?=\w{1})查看t后面是否跟着一个字符，<br>满足匹配成功，本轮结束</td>
+<td>字符t</td>
+<td>t</td>
+</tr>
+<tr>
+<td>2</td>
+<td>指针从t往后一位开始(字符‘e’)，\w{1}匹配到字符’e’,<br> 同时(?=\w{1})查看e后面是否跟着一个字符，<br>满足匹配成功，本轮结束</td>
+<td>字符e</td>
+<td>e</td>
+</tr>
+<tr>
+<td>3</td>
+<td>指针从e往后一位开始(字符‘s’)，\w{1}匹配到字符’s’,<br>同时(?=\w{1})查看s后面是否跟着一个字符，<br>满足匹配成功，本轮结束</td>
+<td>字符s</td>
+<td>s</td>
+</tr>
+<tr>
+<td>4</td>
+<td>指针从s往后一位开始(字符‘t’)，\w{1}匹配到字符’t’,<br> 同时(?=\w{1})查看t后面是否跟着一个字符，<br>不满足匹配失败，本轮结束</td>
+<td>字符t</td>
+<td>无</td>
+</tr>
+<tr>
+<td>5</td>
+<td>指针从t字符往后一位,没有数据结束所有的表达式匹配。</td>
+<td>无</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p>最后的结果为[‘t’,’e’,’s’];  </p>
+<h4 id="正向预查"><a href="#正向预查" class="headerlink" title="正向预查"></a>正向预查</h4><p>理解了预查不消耗字符的原理，我们回到正题，谈谈正向预查，正向预查分成2部分<code>正向肯定预查</code>(零宽度正预测先行断言)和<code>正向否定预查</code>(零宽度负预测先行断言)：</p>
+<ol>
+<li><p><strong>正向肯定预查</strong><br>格式<strong>(?=exp)</strong>,通俗的理解是<strong>如果当前匹配的字符后面紧跟着<code>是</code>exp则匹配当前字符，否则不匹配</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'test'</span>;</span><br><span class="line">str.match(<span class="regexp">/\w(?=t)/g</span>) [<span class="string">"s"</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>正向否定预查</strong><br>格式<strong>(?!exp)</strong>,通俗的理解是<strong>如果当前匹配的字符后面紧跟着的<code>不是</code>exp则匹配当前字符，否则不匹配</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'test'</span>;</span><br><span class="line">str.match(<span class="regexp">/\w(?!t)/g</span>) [<span class="string">"t"</span>,<span class="string">"e"</span>,<span class="string">"t"</span>]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="反向预查"><a href="#反向预查" class="headerlink" title="反向预查"></a>反向预查</h4><p>反向预查也同样分成<code>反向肯定预查</code>(零宽度正回顾后发断言)和<code>反向否定预查</code>(零宽度负回顾后发断言)：</p>
+<ol>
+<li><p><strong>反向肯定预查</strong><br>格式<strong>(?&lt;=exp)</strong>,跟正向肯定预查相似，反向肯定预查是<strong>当前匹配的字符前面紧跟着<code>是</code>exp则匹配当前字符，否则不匹配</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str=<span class="string">'test'</span>;</span><br><span class="line">(?&lt;=t)\w  //["e"]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>反向否定预查</strong><br>格式<strong>(?&lt;!exp)</strong>,跟正向否定预查相似，反向否定预查是<strong>当前匹配的字符前面紧跟着的<code>不是</code>exp则匹配当前字符，否则不匹配</strong>。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str=<span class="string">'test'</span>;</span><br><span class="line">(?&lt;!t)\w <span class="comment">//["t","s","t"]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>js中不支持反向预查，所有上面的代码使用的是伪代码.(php、java等语言是支持反向的).</p>
+</blockquote>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>我们来总结关于分组操作的一些区别</p>
+<table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>艺名</th>
+<th>描述</th>
+<th>捕获</th>
+<th>引用</th>
+<th>消耗字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>(exp)</strong></td>
+<td>普通分组</td>
+<td>匹配exp分组并捕获匹配内容</td>
+<td>捕获</td>
+<td>引用</td>
+<td>消耗字符</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>(?:exp)</strong></td>
+<td>非捕获分组</td>
+<td>匹配exp分组</td>
+<td>不捕获</td>
+<td>不可引用</td>
+<td>消耗字符</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>(?=exp)</strong></td>
+<td>正向肯定预查</td>
+<td>如果当前字符后面紧跟的是exp则匹配当前字符(不包含exp),</td>
+<td>不捕获</td>
+<td>不可引用</td>
+<td>不消耗字符</td>
+</tr>
+<tr>
+<td><strong>(?!exp)</strong></td>
+<td>正向否定预查</td>
+<td>如果当前字符后面紧跟的不是exp则匹配当前字符(不包含exp)</td>
+<td>不捕获</td>
+<td>不可引用</td>
+<td>不消耗字符</td>
+</tr>
+<tr>
+<td><strong>(?&lt;exp)</strong></td>
+<td>反向肯定预查</td>
+<td>如果当前字符前面紧跟的是exp则匹配当前字符(不包含exp),</td>
+<td>不捕获</td>
+<td>不可引用</td>
+<td>不消耗字符</td>
+</tr>
+<tr>
+<td><strong>(?&lt;!exp)</strong></td>
+<td>反向否定预查</td>
+<td>如果当前字符前面紧跟的不是exp则匹配当前字符(不包含exp),</td>
+<td>不捕获</td>
+<td>不可引用</td>
+<td>不消耗字符</td>
+</tr>
+</tbody>
+</table>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p>百度百科正则表达式</p>
 
         
         </div>
@@ -261,7 +430,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/03/25/hexo-NexT主题的配置和修改/" data-id="cimvv4yfg0006d49g4v4rn9h9" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+    <a data-url="http://yoursite.com/2016/04/08/【正则】分组、捕获、预查/" data-id="cimvv4ygf000id49gkg17qzlj" class="article-share-link"><i class="fa fa-share"></i>共有</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -329,7 +498,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
             
     
-        <a href="http://yoursite.com/2016/03/25/hexo-NexT主题的配置和修改/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/25/hexo-NexT主题的配置和修改/">コメント</a>
+        <a href="http://yoursite.com/2016/04/08/【正则】分组、捕获、预查/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/04/08/【正则】分组、捕获、预查/">コメント</a>
     
 
         </footer>
@@ -338,19 +507,19 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
         
 <nav id="article-nav">
     
-        <a href="/2016/03/28/hexo部署到coding/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2016/04/09/常用正则记录/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">新しい記事</strong>
             <div class="article-nav-title">
                 
-                    hexo部署到coding
+                    常用正则记录
                 
             </div>
         </a>
     
     
-        <a href="/2016/03/25/hexo替换皮肤/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/04/06/正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">古い記事</strong>
-            <div class="article-nav-title">hexo替换皮肤</div>
+            <div class="article-nav-title">正则表达式</div>
         </a>
     
 </nav>
@@ -364,7 +533,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
     <section id="comments">
     
         
-    <div class="ds-thread" data-thread-key="2016/03/25/hexo-NexT主题的配置和修改/" data-title="hexo NexT主题的配置和修改" data-url="http://yoursite.com/2016/03/25/hexo-NexT主题的配置和修改/"></div>
+    <div class="ds-thread" data-thread-key="2016/04/08/【正则】分组、捕获、预查/" data-title="【正则】分组、捕获、预查" data-url="http://yoursite.com/2016/04/08/【正则】分组、捕获、预查/"></div>
     <style>
         #ds-thread #ds-reset .ds-textarea-wrapper {
             background: none;

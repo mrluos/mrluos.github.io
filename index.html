@@ -83,7 +83,7 @@ var _hmt = _hmt || [];
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="st-default-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="st-default-search-input search-form-input" placeholder="検索" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <script type="text/javascript">
@@ -131,7 +131,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="st-default-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="st-default-search-input search-form-input" placeholder="検索" />
     </div>
 
                 </td>
@@ -151,16 +151,16 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
             <h2 id="name">mrluos</h2>
             <h3 id="title">0 &amp; 1</h3>
             <span id="location"><i class="fa fa-map-marker"></i>ShenZhen, China</span>
-            <a id="follow" target="_blank" href="https://coding.net/mrluos/">FOLLOW</a>
+            <a id="follow" target="_blank" href="https://coding.net/mrluos/">フォローする</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                8
-                <span>posts</span>
+                11
+                <span>投稿</span>
             </div>
             <div class="article-info-block">
-                19
-                <span>tags</span>
+                20
+                <span>タグ</span>
             </div>
         </div>
         
@@ -187,7 +187,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
             
             <section id="main">
-    <article id="post-柯里化、偏函数应用小计" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-常用正则记录" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -196,7 +196,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2016/03/31/柯里化、偏函数应用小计/">柯里化、偏函数(局部应用)小计</a>
+            <a class="article-title" href="/2016/04/09/常用正则记录/">常用正则记录</a>
         </h1>
     
 
@@ -204,8 +204,8 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/03/31/柯里化、偏函数应用小计/">
-            <time datetime="2016-03-31T04:19:51.000Z" itemprop="datePublished">2016-03-31</time>
+        <a href="/2016/04/09/常用正则记录/">
+            <time datetime="2016-04-09T02:31:07.000Z" itemprop="datePublished">2016-04-09</time>
         </a>
     </div>
 
@@ -213,13 +213,13 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
                     
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Functional-Programming/">Functional Programming</a>
+        <a class="article-category-link" href="/categories/javascript/">javascript</a>
     </div>
 
                     
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Currying/">Currying</a>, <a class="tag-link" href="/tags/Partial-Application/">Partial Application</a>, <a class="tag-link" href="/tags/js/">js</a>, <a class="tag-link" href="/tags/偏函数（局部应用）/">偏函数（局部应用）</a>, <a class="tag-link" href="/tags/柯里化/">柯里化</a>
+        <a class="tag-link" href="/tags/js/">js</a>, <a class="tag-link" href="/tags/正则表达式/">正则表达式</a>
     </div>
 
                 </div>
@@ -227,14 +227,22 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>记录关于柯里化(currying),和偏函数或部分应用(Partial Application)的使用，以及它们之间的差异。</p>
-<h4 id="偏函数-partial-application"><a href="#偏函数-partial-application" class="headerlink" title="偏函数(partial application)"></a>偏函数(partial application)</h4><p>偏函数适用于：当一个函数有多个参数，我们想通过固定其中的几个参数,产生一个新的函数，例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个记录日志的文件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">code,msg,color</span>)</span>&#123;</span><br><span class="line">      <span class="comment">//这里假设一个打印信息的函数</span></span><br><span class="line">      showlog(code,msg,color);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//固定code和color</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">errorLog</span>(<span class="params">msg</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> log(<span class="number">1</span>,msg,<span class="string">'red'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>上面的errorLog就是log函数的一个偏函数。</p>
+            
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>把练习过的正则题，记录下来，方便以后使用。</p>
+<h4 id="题目列表"><a href="#题目列表" class="headerlink" title="题目列表"></a>题目列表</h4><h5 id="1-匹配a连接内的地址"><a href="#1-匹配a连接内的地址" class="headerlink" title="1.匹配a连接内的地址"></a>1.匹配a连接内的地址</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//匹配出href中的字符串</span></span><br><span class="line">/&lt;a.*href=(?:"|'*)([^&gt;]*?)(?:"|'*)\s/gi</span><br></pre></td></tr></table></figure>
+<h5 id="2-匹配纯数字"><a href="#2-匹配纯数字" class="headerlink" title="2.匹配纯数字"></a>2.匹配纯数字</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//匹配出href中的字符串</span></span><br><span class="line">/^\d+$/gi</span><br></pre></td></tr></table></figure>
+<h5 id="3-一串数字每三位加一个逗号从后往前"><a href="#3-一串数字每三位加一个逗号从后往前" class="headerlink" title="3.一串数字每三位加一个逗号从后往前"></a>3.一串数字每三位加一个逗号从后往前</h5><p>如何使用正则把字符1234567,替换成1,234,567？<br>解题前必须要了解的东西：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'tetete'</span>;</span><br><span class="line">str.replace(<span class="regexp">/(te)/gi</span>,<span class="string">'$1,'</span>) <span class="comment">//结果"te,te,te,"</span></span><br></pre></td></tr></table></figure></p>
+<p>关于js的replace的用法可以看看这个<a href="http://www.w3school.com.cn/jsref/jsref_replace.asp" target="_blank" rel="external">replace使用方法</a>.  </p>
+<p>开始解题</p>
+<ol>
+<li>题目要求每3位加一个逗号，那是否是直接截取3位（\d{3}）作为一个整体来匹配？<br>很显然不是，因为字符串的位数可能不是3的整倍数的时候，剩下字符小于3，所以这里要使用\d{1,3}。</li>
+<li>如何让\d{1,3}表达式成功<strong>匹配</strong>？<br>假设\d{1,3}这个表达式匹配成功,那意味着它剩下的字符(<code>\d{1,3}匹配成功会消耗字符</code>)一定要是3的整数倍,换句话说\d{1,3}匹配成功的条件就是它后面的位数要是3的整倍数。<br>把上面的描述用正则表达式翻译就是:<br>整倍数,表示成<code>(\d{3})+(?!\d)</code>,由于这个只是匹配不捕获所以使用非获取匹配(?:exp),于是就变成<code>(?:\d{3})+(?!\d)</code> 这个是关键。<br>\d{1,3}的后面，表示成<strong>(?=exp)</strong><br>所以最终变成：(\d{1,3})(?=(?:\d{3})+(?!\d))</li>
+</ol>
 <blockquote>
-<p>通常的，返回一个函数的任何函数，都可以在使用时被当做偏函数。<br></p>
-            <p class="article-more-link">
-                <a href="/2016/03/31/柯里化、偏函数应用小计/#more">Read More</a>
-            </p>
+<p>这个题目是比较经典的对预查(零宽度)的应用。</p>
+</blockquote>
+<p>不定时更新…</p>
+
         
         </div>
         <footer class="article-footer">
@@ -244,7 +252,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/03/31/柯里化、偏函数应用小计/" data-id="cimn7jur4000i2c9g97bnbx9h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2016/04/09/常用正则记录/" data-id="cimvv4ygl000md49g1mrshpsp" class="article-share-link"><i class="fa fa-share"></i>共有</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -312,7 +320,409 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
             
     
-        <a href="http://yoursite.com/2016/03/31/柯里化、偏函数应用小计/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/31/柯里化、偏函数应用小计/">Comments</a>
+        <a href="http://yoursite.com/2016/04/09/常用正则记录/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/04/09/常用正则记录/">コメント</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-【正则】分组、捕获、预查" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/04/08/【正则】分组、捕获、预查/">【正则】分组、捕获、预查</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/04/08/【正则】分组、捕获、预查/">
+            <time datetime="2016-04-08T03:58:01.000Z" itemprop="datePublished">2016-04-08</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/js/">js</a>, <a class="tag-link" href="/tags/正则表达式/">正则表达式</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>上一篇<a href="/2016/04/08/正则表达式">正则表达式</a>我们介绍了正则表达式的基本规则，这篇主要是记录关于正则表达式里的捕获。</p>
+<h4 id="捕获"><a href="#捕获" class="headerlink" title="捕获"></a>捕获</h4><p>在上一篇中介绍了使用小括号包围起来的表达式,会捕获匹配的内容到默认的分组中。  </p>
+<blockquote>
+<p>捕获是指把匹配的内容进行存储并编号，方面后续的使用。</p>
+</blockquote>
+<h4 id="非捕获"><a href="#非捕获" class="headerlink" title="非捕获"></a>非捕获</h4><p>在实际实用中我们需要对字符进行分组匹配但是后续不需要操作匹配的内容，只是查找，如果我们使用（abc）这种模式明显就很浪费。<br>这里就引出只匹配不捕获的表达式：<br><strong>(?:abc)</strong> ： 匹配abc.但是不对匹配的内容进行捕获。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.match(<span class="regexp">/industr(?:i|ies)/g</span>); <span class="comment">//匹配industry 或者 industries</span></span><br></pre></td></tr></table></figure></p></p>
+            <p class="article-more-link">
+                <a href="/2016/04/08/【正则】分组、捕获、预查/#more">Читать дальше</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2016/04/08/【正则】分组、捕获、预查/" data-id="cimvv4ygf000id49gkg17qzlj" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://yoursite.com/2016/04/08/【正则】分组、捕获、预查/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/04/08/【正则】分组、捕获、预查/">コメント</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/04/06/正则表达式/">正则表达式</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/04/06/正则表达式/">
+            <time datetime="2016-04-06T03:29:26.000Z" itemprop="datePublished">2016-04-06</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/js/">js</a>, <a class="tag-link" href="/tags/正则表达式/">正则表达式</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>记录如何学习和使用正则表达式。</p>
+<h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h4><p>我对正则表达式的理解就是，用<code>普通字符</code>和<code>特定字符</code>组成一个“规则字符串”，用这个“规则字符串”来过滤操作的对象。正则表达式的规则不局限于语言，所以学习好正则能受用于各个平台。</p>
+<h4 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h4><p>一个正则表达式可以由下面两种字符类型组合而成，也可以是单一的一种字符类型组成：<br><code>普通字符</code>:包括大小写的字母和数字.<br><code>特定字符</code>:在正则表达式中规定了一些代表某种意义的字符，也叫元字符。     </p></p>
+            <p class="article-more-link">
+                <a href="/2016/04/06/正则表达式/#more">Читать дальше</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2016/04/06/正则表达式/" data-id="cimvv4yga000gd49g0zehja30" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://yoursite.com/2016/04/06/正则表达式/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/04/06/正则表达式/">コメント</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-柯里化、偏函数应用小计" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/03/31/柯里化、偏函数应用小计/">柯里化、偏函数(局部应用)小计</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/03/31/柯里化、偏函数应用小计/">
+            <time datetime="2016-03-31T04:19:51.000Z" itemprop="datePublished">2016-03-31</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Functional-Programming/">Functional Programming</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Currying/">Currying</a>, <a class="tag-link" href="/tags/Partial-Application/">Partial Application</a>, <a class="tag-link" href="/tags/js/">js</a>, <a class="tag-link" href="/tags/偏函数（局部应用）/">偏函数（局部应用）</a>, <a class="tag-link" href="/tags/柯里化/">柯里化</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>记录关于柯里化(currying),和偏函数或部分应用(Partial Application)的使用，以及它们之间的差异。</p>
+<h4 id="偏函数-partial-application"><a href="#偏函数-partial-application" class="headerlink" title="偏函数(partial application)"></a>偏函数(partial application)</h4><p>偏函数适用于：当一个函数有多个参数，我们想通过固定其中的几个参数,产生一个新的函数，例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个记录日志的文件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">code,msg,color</span>)</span>&#123;</span><br><span class="line">      <span class="comment">//这里假设一个打印信息的函数</span></span><br><span class="line">      showlog(code,msg,color);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//固定code和color</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">errorLog</span>(<span class="params">msg</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> log(<span class="number">1</span>,msg,<span class="string">'red'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的errorLog就是log函数的一个偏函数。<br></p>
+            <p class="article-more-link">
+                <a href="/2016/03/31/柯里化、偏函数应用小计/#more">Читать дальше</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2016/03/31/柯里化、偏函数应用小计/" data-id="cimvv4yfy000dd49g1dgmap1b" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://yoursite.com/2016/03/31/柯里化、偏函数应用小计/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/31/柯里化、偏函数应用小计/">コメント</a>
     
 
         </footer>
@@ -366,7 +776,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 <h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><p>根据js对值的操作规则可以来区分成2个大类，分别是基本类型和引用类型。  </p>
 <h5 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h5><p>成员：数字、文本字符串、布尔值、null和undefined。<br>存储：在存储的角度来说它拥有固定的大小，例如一个数值在内存中占八个字节，而一个布尔值就一位。<br>判断类型：使用typeof()<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="number">1</span>));   <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="literal">NaN</span>));   <span class="comment">// number--特别注意</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="string">'a'</span>)); <span class="comment">// string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="literal">true</span>));  <span class="comment">// boolean</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="literal">undefined</span>));  <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure></p></p>
             <p class="article-more-link">
-                <a href="/2016/03/28/JavaScript小计/#more">Read More</a>
+                <a href="/2016/03/28/JavaScript小计/#more">Читать дальше</a>
             </p>
         
         </div>
@@ -377,7 +787,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/03/28/JavaScript小计/" data-id="cimn7juql000b2c9gj07jxszh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2016/03/28/JavaScript小计/" data-id="cimvv4yfo0009d49gegov05qo" class="article-share-link"><i class="fa fa-share"></i>共有</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -445,7 +855,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
             
     
-        <a href="http://yoursite.com/2016/03/28/JavaScript小计/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/28/JavaScript小计/">Comments</a>
+        <a href="http://yoursite.com/2016/03/28/JavaScript小计/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/28/JavaScript小计/">コメント</a>
     
 
         </footer>
@@ -498,7 +908,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
             <p><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>由于使用github有时访问很慢,所以就把主页托管的到coding上，下面记录一下转移的方法。</p>
 <h4 id="step-1-修改主站配置"><a href="#step-1-修改主站配置" class="headerlink" title="step 1 修改主站配置"></a>step 1 修改主站配置</h4><p><code>配置主站</code>的_config.yml,修改deploy的repo。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@git.coding.net:mrluos/mrluos.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p></p>
             <p class="article-more-link">
-                <a href="/2016/03/28/hexo部署到coding/#more">Read More</a>
+                <a href="/2016/03/28/hexo部署到coding/#more">Читать дальше</a>
             </p>
         
         </div>
@@ -509,7 +919,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/03/28/hexo部署到coding/" data-id="cimn7juqs000e2c9gjfnnqysx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2016/03/28/hexo部署到coding/" data-id="cimvv4yfr000bd49gmkrd7kmd" class="article-share-link"><i class="fa fa-share"></i>共有</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -577,7 +987,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
             
     
-        <a href="http://yoursite.com/2016/03/28/hexo部署到coding/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/28/hexo部署到coding/">Comments</a>
+        <a href="http://yoursite.com/2016/03/28/hexo部署到coding/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/28/hexo部署到coding/">コメント</a>
     
 
         </footer>
@@ -631,7 +1041,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 <h4 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h4><p>下面介绍一些基本的配置的修改，打开next/_config.yml文件：  </p>
 <h5 id="1-设置favicon-icon？"><a href="#1-设置favicon-icon？" class="headerlink" title="1.设置favicon.icon？"></a><strong>1.设置favicon.icon？</strong></h5><p>把favicon.ico放到站点的source的目录下。<br></p>
             <p class="article-more-link">
-                <a href="/2016/03/25/hexo-NexT主题的配置和修改/#more">Read More</a>
+                <a href="/2016/03/25/hexo-NexT主题的配置和修改/#more">Читать дальше</a>
             </p>
         
         </div>
@@ -642,7 +1052,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/03/25/hexo-NexT主题的配置和修改/" data-id="cimn7juqa00062c9gwrso955h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2016/03/25/hexo-NexT主题的配置和修改/" data-id="cimvv4yfg0006d49g4v4rn9h9" class="article-share-link"><i class="fa fa-share"></i>共有</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -710,7 +1120,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
             
     
-        <a href="http://yoursite.com/2016/03/25/hexo-NexT主题的配置和修改/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/25/hexo-NexT主题的配置和修改/">Comments</a>
+        <a href="http://yoursite.com/2016/03/25/hexo-NexT主题的配置和修改/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/25/hexo-NexT主题的配置和修改/">コメント</a>
     
 
         </footer>
@@ -763,7 +1173,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
             <p><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>通过前面（<a href="/2016/03/23/hexo基本搭建">hexo基本搭建</a> <a href="/2016/03/24/hexo发布到github">hexo发布到github</a>）的折腾，现在已经把个人的站点搭建起来了，同时也能发布到github上，这篇文章记录一下如果看不顺眼站点的布局想要换一个该如何操作。 </p>
 <h4 id="开始改变"><a href="#开始改变" class="headerlink" title="开始改变"></a>开始改变</h4><h5 id="step-1-选择主题"><a href="#step-1-选择主题" class="headerlink" title="step 1 选择主题"></a>step 1 选择主题</h5><p>从<a href="https://hexo.io/themes/">hexo官方皮肤</a>里找到你心仪的主题样式，这里我使用的<a href="https://github.com/iissnan/hexo-theme-next">NexT</a>。<br></p>
             <p class="article-more-link">
-                <a href="/2016/03/25/hexo替换皮肤/#more">Read More</a>
+                <a href="/2016/03/25/hexo替换皮肤/#more">Читать дальше</a>
             </p>
         
         </div>
@@ -774,7 +1184,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/03/25/hexo替换皮肤/" data-id="cimn7juqg00092c9gsewitckc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2016/03/25/hexo替换皮肤/" data-id="cimvv4yfk0007d49gx8j7cefd" class="article-share-link"><i class="fa fa-share"></i>共有</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -842,7 +1252,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
             
     
-        <a href="http://yoursite.com/2016/03/25/hexo替换皮肤/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/25/hexo替换皮肤/">Comments</a>
+        <a href="http://yoursite.com/2016/03/25/hexo替换皮肤/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/25/hexo替换皮肤/">コメント</a>
     
 
         </footer>
@@ -894,7 +1304,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
         
             <p><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>通过<a href="/2016/03/23/hexo基本搭建">hexo基本搭建</a>完成了基本的hexo环境的搭建和本地浏览。<br>这篇文章记录如何结合github实现免费的个人站点的搭建。<br></p>
             <p class="article-more-link">
-                <a href="/2016/03/24/hexo发布到github/#more">Read More</a>
+                <a href="/2016/03/24/hexo发布到github/#more">Читать дальше</a>
             </p>
         
         </div>
@@ -905,7 +1315,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/03/24/hexo发布到github/" data-id="cimn7juq100022c9g5fdb1x46" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2016/03/24/hexo发布到github/" data-id="cimvv4ygn000nd49g1w7p0dfg" class="article-share-link"><i class="fa fa-share"></i>共有</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -973,7 +1383,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
             
     
-        <a href="http://yoursite.com/2016/03/24/hexo发布到github/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/24/hexo发布到github/">Comments</a>
+        <a href="http://yoursite.com/2016/03/24/hexo发布到github/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/24/hexo发布到github/">コメント</a>
     
 
         </footer>
@@ -1026,7 +1436,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
             <p><h4 id="hexo是什么鬼？"><a href="#hexo是什么鬼？" class="headerlink" title="hexo是什么鬼？"></a>hexo是什么鬼？</h4><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
 <h4 id="如何安装？"><a href="#如何安装？" class="headerlink" title="如何安装？"></a>如何安装？</h4><h5 id="安装hexo前准备"><a href="#安装hexo前准备" class="headerlink" title="安装hexo前准备"></a>安装hexo前准备</h5><p>在安装hexo前需要准备的大环境是<br>Git <a href="https://git-scm.com/download/win">如何安装git</a><br>node.js <a href="https://nodejs.org/en/">如何安装nodejs.js</a><br></p>
             <p class="article-more-link">
-                <a href="/2016/03/23/hexo基本搭建/#more">Read More</a>
+                <a href="/2016/03/23/hexo基本搭建/#more">Читать дальше</a>
             </p>
         
         </div>
@@ -1037,7 +1447,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/03/23/hexo基本搭建/" data-id="cimn7jups00002c9gqgvppgmx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2016/03/23/hexo基本搭建/" data-id="cimvv4yf40002d49g4g6zj6rb" class="article-share-link"><i class="fa fa-share"></i>共有</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1105,7 +1515,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
             
     
-        <a href="http://yoursite.com/2016/03/23/hexo基本搭建/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/23/hexo基本搭建/">Comments</a>
+        <a href="http://yoursite.com/2016/03/23/hexo基本搭建/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/23/hexo基本搭建/">コメント</a>
     
 
         </footer>
@@ -1115,147 +1525,72 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 
 
 
-    <article id="post-grunt学习" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/03/21/grunt学习/">grunt 使用纪要</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/03/21/grunt学习/">
-            <time datetime="2016-03-21T07:28:37.000Z" itemprop="datePublished">2016-03-21</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/grunt/">grunt</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/contrib-jshint/">contrib-jshint</a>, <a class="tag-link" href="/tags/contrib-unlify/">contrib-unlify</a>, <a class="tag-link" href="/tags/contrib-watch/">contrib-watch</a>, <a class="tag-link" href="/tags/grunt/">grunt</a>, <a class="tag-link" href="/tags/grunt-autoprefixer/">grunt-autoprefixer</a>, <a class="tag-link" href="/tags/grunt-compass/">grunt-compass</a>
-    </div>
-
-                </div>
-            </header>
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><h4 id="win-环境下-grunt-安装使用纪要"><a href="#win-环境下-grunt-安装使用纪要" class="headerlink" title="win 环境下 grunt 安装使用纪要"></a>win 环境下 grunt 安装使用纪要</h4><p>grunt是一款前端自动化的神器，今天记录一下使用的方法。<br>首先要清楚的是grunt是基于nodejs为前提的一个插件，所以如果没有安装nodejs.可以先下载安装。<br>这里假设已经安装完了nodejs,然后我们打开nodejs的命令行程序（记得要使用管理员的权限运行），下面开始安装grunt.  </p>
-<h4 id="安装grunt的命令行插件grunt-cli"><a href="#安装grunt的命令行插件grunt-cli" class="headerlink" title="安装grunt的命令行插件grunt-cli"></a>安装grunt的命令行插件grunt-cli</h4><p>安装时候使用-g参数进行全局的安装，把插件安装到全局的环境中(npm get prefix 查看全局环境的路径)。  在nodejs cmd 里面输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g  grunt-cli</span><br></pre></td></tr></table></figure></p>
-<p>安装完成后在cmd里输入：grunt 会出现如下的提示，说明grunt-cli安装成功了。<br></p>
-            <p class="article-more-link">
-                <a href="/2016/03/21/grunt学习/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2016/03/21/grunt学习/" data-id="cimn7juqd00072c9ga3nj6dwb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://yoursite.com/2016/03/21/grunt学习/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/03/21/grunt学习/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
+    <nav id="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">次 &raquo;</a>
+    </nav>
 </section>
             
                 <aside id="sidebar">
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">recent</h3>
+        <h3 class="widget-title">最近の記事</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/04/09/常用正则记录/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/regex.jpg)" alt="常用正则记录" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/javascript/">javascript</a></p>
+                            <p class="item-title"><a href="/2016/04/09/常用正则记录/" class="title">常用正则记录</a></p>
+                            <p class="item-date"><time datetime="2016-04-09T02:31:07.000Z" itemprop="datePublished">2016-04-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/04/08/【正则】分组、捕获、预查/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/regex.jpg)" alt="【正则】分组、捕获、预查" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/javascript/">javascript</a></p>
+                            <p class="item-title"><a href="/2016/04/08/【正则】分组、捕获、预查/" class="title">【正则】分组、捕获、预查</a></p>
+                            <p class="item-date"><time datetime="2016-04-08T03:58:01.000Z" itemprop="datePublished">2016-04-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/04/06/正则表达式/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/regex.jpg)" alt="正则表达式" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/javascript/">javascript</a></p>
+                            <p class="item-title"><a href="/2016/04/06/正则表达式/" class="title">正则表达式</a></p>
+                            <p class="item-date"><time datetime="2016-04-06T03:29:26.000Z" itemprop="datePublished">2016-04-06</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1293,60 +1628,6 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/03/28/hexo部署到coding/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/css/images/hexo.svg)" alt="hexo部署到coding" class="thumbnail-image"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/hexo/">hexo</a></p>
-                            <p class="item-title"><a href="/2016/03/28/hexo部署到coding/" class="title">hexo部署到coding</a></p>
-                            <p class="item-date"><time datetime="2016-03-28T06:13:39.000Z" itemprop="datePublished">2016-03-28</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/03/25/hexo-NexT主题的配置和修改/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/css/images/hexo.svg)" alt="hexo NexT主题的配置和修改" class="thumbnail-image"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/hexo/">hexo</a></p>
-                            <p class="item-title"><a href="/2016/03/25/hexo-NexT主题的配置和修改/" class="title">hexo NexT主题的配置和修改</a></p>
-                            <p class="item-date"><time datetime="2016-03-25T04:19:44.000Z" itemprop="datePublished">2016-03-25</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/03/25/hexo替换皮肤/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/css/images/hexo.svg)" alt="hexo替换皮肤" class="thumbnail-image"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/hexo/">hexo</a></p>
-                            <p class="item-title"><a href="/2016/03/25/hexo替换皮肤/" class="title">hexo替换皮肤</a></p>
-                            <p class="item-date"><time datetime="2016-03-25T03:39:24.000Z" itemprop="datePublished">2016-03-25</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1354,18 +1635,18 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">categories</h3>
+        <h3 class="widget-title">カテゴリ</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Functional-Programming/">Functional Programming</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/grunt/">grunt</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Functional-Programming/">Functional Programming</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/grunt/">grunt</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">4</span></li></ul>
         </div>
     </div>
 
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">archives</h3>
+        <h3 class="widget-title">アーカイブ</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">8</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">8</span></li></ul>
         </div>
     </div>
 
