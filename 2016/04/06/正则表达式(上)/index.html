@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>正则表达式(上) · mrluo</title><meta name="description" content="正则表达式(上) - mrluo"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.ico"><link rel="stylesheet" href="/css/style.css"><!-- fonts--><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="stylesheet" href="http://fonts.lug.ustc.edu.cn/css?family=Source+Sans+Pro:400,600" type="text/css"><!-- baidu analytics--><script type="text/javascript">var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?3ee91d14584b24f0f7509f558e910b42";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script></head><body><input type="checkbox" id="sidebar-toggle"><aside><div class="author"><a href="/."><img src="/img/author.png" class="author-img"></a><h2 class="author-name">mrluo</h2></div><div class="post-toc"><span class="toc-title">Directory</span><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式"><span class="toc-text">正则表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符"><span class="toc-text">字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表达式分解"><span class="toc-text">表达式分解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用元字符"><span class="toc-text">常用元字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转义符"><span class="toc-text">转义符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匹配次数的元字符"><span class="toc-text">匹配次数的元字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#续篇"><span class="toc-text">续篇</span></a></li></ol></div></aside><div class="main"><header><div id="top"><a href="/." class="logo-link">mrluo</a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">Archive</a></li><li class="nav-list-item"><a href="/tags/" target="_self" class="nav-list-link">Tags</a></li></ul></div></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">正则表达式(上)</h1><div class="post-time">Apr 6, 2016</div><div class="post-content"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>记录如何学习和使用正则表达式。</p>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><p>我对正则表达式的理解就是，用<code>普通字符</code>和<code>特定字符</code>组成一个“规则字符串”，用这个“规则字符串”来过滤操作的对象。正则表达式的规则不局限于语言，所以学习好正则能受用于各个平台。</p>
+<h3 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h3><p>一个正则表达式可以由下面两种字符类型组合而成，也可以是单一的一种字符类型组成：<br><code>普通字符</code>:包括大小写的字母和数字.<br><code>特定字符</code>:在正则表达式中规定了一些代表某种意义的字符，也叫元字符。     </p>
+<a id="more"></a>
+<h3 id="表达式分解"><a href="#表达式分解" class="headerlink" title="表达式分解"></a>表达式分解</h3><p>单一的普通字符,组合成的正则表达式：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/test/</span><br></pre></td></tr></table></figure></p>
+<p>这是一个仅有普通字符的正则表达式，能匹配test开头或者包含test的字符串。  </p>
+<blockquote>
+<p>在js中正则表达式以‘/’开头和结尾。中间包含的就是匹配的规字符。</p>
+</blockquote>
+<p>上面的表达式不仅能匹配test，还能匹配包含test的字符串例如：1test2、atest123等，如果要准确的匹配test这个单词那么我们就需要做一个小小的改造：<br>普通字符+元字符组成的正则表达式：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/\btest\b/</span><br></pre></td></tr></table></figure></p>
+<p><strong> <code>\b</code> </strong>: 是元字符，匹配一个单词边界，也就是指单词和空格间的位置.<br>能匹配“This is test regex !”中的“test”,但是不能匹配“This is test123 regex”中的“test”。      </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var test1='This is test regex';</span><br><span class="line">var test2='This is test123 regex';</span><br><span class="line">//匹配test单词和它后面的任意的字符可以使用</span><br><span class="line">/\btest\b.*/.test(test1) //true</span><br><span class="line"></span><br><span class="line">//匹配test这个字符和它后面的任意数量的数字可以使用</span><br><span class="line">/\btest\d*/.test(test2) //true</span><br></pre></td></tr></table></figure>
+<p>上面的表达式中我们注意到有 <code>.</code>(点) ,<code>*</code>（星号）,<code>\d</code>  这些也是元字符。  </p>
+<h3 id="常用元字符"><a href="#常用元字符" class="headerlink" title="常用元字符"></a>常用元字符</h3><table>
+<thead>
+<tr>
+<th>元 字 符</th>
+<th>描述 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>匹配除“\r\n”之外的任何单个字符。要匹配包括“\r\n”在内的任何字符，请使用像“\s”的模式。  </td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配前面的子表达式任意次。例如，zo<em>能匹配“z”，“zo”以及“zoo”,</em>等价于{0,}。</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配一个数字字符。等价于[0-9]</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配一个非数字字符。等价于[0-9]</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配包括下划线的任何单词字符。类似但不等价于“[A-Za-z0-9_]”，这里的”单词”字符使用Unicode字符集(不能匹配中文)</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>匹配任何非单词字符。等价于“[^A-Za-z0-9_]”。</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任何不可见字符，包括空格、制表符、换页符等等。等价于[ \f\n\r\t\v]。</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配任何可见字符。等价于[^ \f\n\r\t\v]。</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配一个单词边界(空格、段落首行、段落末尾、逗号、句号、”-“等符号)，也就是指单词和空格间的位置.</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>匹配非单词边界。</td>
+</tr>
+<tr>
+<td>^</td>
+<td>匹配字符串的开始位置。(多行模式下，将匹配换行符后面的开始位置)</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配字符串的结束位置。(多行模式下，将匹配换行符后面的结束位置)</td>
+</tr>
+<tr>
+<td>a&#124;b</td>
+<td>匹配字符a或者b。(匹配的顺序左-&gt;右，只要满足了就不会继续匹配，如果匹配到了a,就不会继续匹配b)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>上面表格列出了一些比较常用的元字符。</p>
+</blockquote>
+<h3 id="转义符"><a href="#转义符" class="headerlink" title="转义符"></a>转义符</h3><p>当你在使用正则表达式匹配跟元字符一样的字符（例如’.’,’*’,’\’）的时候就需要用到转义符：<br>例如想要匹配’.’就需要使用‘\.’来匹配。  </p>
+<h3 id="匹配次数的元字符"><a href="#匹配次数的元字符" class="headerlink" title="匹配次数的元字符"></a>匹配次数的元字符</h3><p>从上面的表格中看到‘*’元字符的描述是，匹配表达式任意次数，下面整理了在正则中表示匹配次数的元字符：  </p>
+<table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>匹配前面的子表达式任意次(0到n次)。</td>
+</tr>
+<tr>
+<td>+</td>
+<td>匹配前面的子表达式一次或多次(大于等于1次）。</td>
+</tr>
+<tr>
+<td>?</td>
+<td>匹配前面的子表达式零次或一次。</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>n是一个非负整数。匹配确定的n次。</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>n是一个非负整数。至少匹配n次。</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>m和n均为非负整数，其中n&lt;=m。最少匹配n次且最多匹配m次。</td>
+</tr>
+</tbody>
+</table>
+<p>这里需要注意一个地方就是<strong>?</strong>,当<strong>?</strong>出现在上面这个表格的任意一个元字符前面的时候，匹配的规则就会变成<strong>尽量少匹配</strong>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'testtttttt'</span>;</span><br><span class="line"><span class="comment">//+原意是匹配一次或者多次，加上了?就只会匹配一次</span></span><br><span class="line">str.match(<span class="regexp">/test+?/g</span>); <span class="comment">//test</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&#123;2,10&#125;原意是匹配最少2次最多10次，加上了?就只会匹配2次。</span></span><br><span class="line">str.match(<span class="regexp">/test&#123;2,10&#125;?/g</span>);  <span class="comment">//testt</span></span><br></pre></td></tr></table></figure></p>
+<p>这种匹配的模式叫非贪婪的（就是在限定的匹配次数范围内，选择最少的匹配次数）,默认情况下是贪婪模式（例如单纯用+会匹配最多的次数）。</p>
+<h3 id="续篇"><a href="#续篇" class="headerlink" title="续篇"></a>续篇</h3><a href="/2016/04/06/正则表达式(下)/" title="正则表达式(下)">正则表达式(下)</a>
+</div></article></div><div class="tags"><a href="/tags/js/">js</a><a href="/tags/正则表达式/">正则表达式</a></div><div class="paginator"><a href="/2016/04/06/正则表达式(下)/" class="prev"><i class="fa fa-chevron-left"></i><span> Prev</span></a><a href="/2016/03/31/柯里化、偏函数应用小计/" class="next"><span>Next</span><i class="fa fa-chevron-right"></i></a></div></section><footer><section id="comments"><div data-thread-key="http://yoursite.com/2016/04/06/正则表达式(上)/index.html" data-title="正则表达式(上)" data-url="http://yoursite.com/2016/04/06/正则表达式(上)/index.html" class="ds-thread"></div><script type="text/javascript">var duoshuoQuery = {short_name: "mrluos" };
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();</script></section><div class="copyright"><p>© 2016<span class="heart"><i class="icon-next-heart fa fa-heart"></i></span><a href="http://yoursite.com">mrluo</a></p></div></footer></div><label for="sidebar-toggle" class="sidebar-menu"><div class="menu"></div></label><label class="back2top"> <a href="#top"><div class="arrow"></div></a></label></body></html>

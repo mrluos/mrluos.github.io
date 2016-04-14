@@ -1,245 +1,23 @@
-<!DOCTYPE html>
-<html lang=zh>
-<head>
-    <meta charset="utf-8">
-    
-    <title>【正则】分组、捕获、预查 | mrluo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="前言上一篇正则表达式我们介绍了正则表达式的基本规则，这篇主要是记录关于正则表达式里的捕获。
-捕获在上一篇中介绍了使用小括号包围起来的表达式,会捕获匹配的内容到默认的分组中。  
-
-捕获是指把匹配的内容进行存储并编号，方面后续的使用。
-
-非捕获在实际实用中我们需要对字符进行分组匹配但是后续不需要操作匹配的内容，只是查找，如果我们使用（abc）这种模式明显就很浪费。这里就引出只匹配不捕获的表达式：(?">
-<meta property="og:type" content="article">
-<meta property="og:title" content="【正则】分组、捕获、预查">
-<meta property="og:url" content="http://yoursite.com/2016/04/08/【正则】分组、捕获、预查/index.html">
-<meta property="og:site_name" content="mrluo">
-<meta property="og:description" content="前言上一篇正则表达式我们介绍了正则表达式的基本规则，这篇主要是记录关于正则表达式里的捕获。
-捕获在上一篇中介绍了使用小括号包围起来的表达式,会捕获匹配的内容到默认的分组中。  
-
-捕获是指把匹配的内容进行存储并编号，方面后续的使用。
-
-非捕获在实际实用中我们需要对字符进行分组匹配但是后续不需要操作匹配的内容，只是查找，如果我们使用（abc）这种模式明显就很浪费。这里就引出只匹配不捕获的表达式：(?">
-<meta property="og:image" content="http://yoursite.com/css/images/regex.jpg">
-<meta property="og:updated_time" content="2016-04-09T02:29:32.048Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【正则】分组、捕获、预查">
-<meta name="twitter:description" content="前言上一篇正则表达式我们介绍了正则表达式的基本规则，这篇主要是记录关于正则表达式里的捕获。
-捕获在上一篇中介绍了使用小括号包围起来的表达式,会捕获匹配的内容到默认的分组中。  
-
-捕获是指把匹配的内容进行存储并编号，方面后续的使用。
-
-非捕获在实际实用中我们需要对字符进行分组匹配但是后续不需要操作匹配的内容，只是查找，如果我们使用（abc）这种模式明显就很浪费。这里就引出只匹配不捕获的表达式：(?">
-<meta name="twitter:image" content="http://yoursite.com/css/images/regex.jpg">
-    
-
-    
-
-    
-        <link rel="icon" href="/css/images/favicon.ico" />
-    
-
-    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
-    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
-
-    <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
-    
-    
-    
-    
-        <script>
-var _hmt = _hmt || [];
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>【正则】分组、捕获、预查 · mrluo</title><meta name="description" content="【正则】分组、捕获、预查 - mrluo"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.ico"><link rel="stylesheet" href="/css/style.css"><!-- fonts--><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="stylesheet" href="http://fonts.lug.ustc.edu.cn/css?family=Source+Sans+Pro:400,600" type="text/css"><!-- baidu analytics--><script type="text/javascript">var _hmt = _hmt || [];
 (function() {
-    var hm = document.createElement("script");
-    hm.src = "//hm.baidu.com/hm.js?3ee91d14584b24f0f7509f558e910b42";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?3ee91d14584b24f0f7509f558e910b42";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
 })();
-</script>
-
-    
-
-</head>
-<body>
-    <div id="container">
-        <header id="header">
-    <div id="header-main" class="header-inner">
-        <div class="outer">
-            <a href="/" id="logo">
-                
-                <span class="site-title">mrluo</span>
-            </a>
-            <nav id="main-nav">
-                
-                    <a class="main-nav-link" href="/archives">archives</a>
-                
-            </nav>
-            
-                
-                <nav id="sub-nav">
-                    <div class="profile" id="profile-nav">
-                        <a id="profile-anchor" href="javascript:;">
-                            <img class="avatar" src="/css/images/self.png" />
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                    </div>
-                </nav>
-            
-            <div id="search-form-wrap">
-
-    <form class="search-form">
-        <input type="text" class="st-default-search-input search-form-input" placeholder="Search" />
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <script type="text/javascript">
-(function(w,d,t,u,n,s,e) {w['SwiftypeObject']=n;w[n]=w[n]||function() {
-(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-_st('install','veRYnqpReruKjSxAyrSR','2.0.0');
-</script>
-<style>
-    .st-ui-injected-overlay-container,
-    .st-ui-injected-overlay-container *:not(select) {
-        font-family: inherit !important;
-    }
-    section.st-ui-content.st-search-results a.st-ui-result .st-ui-type-heading {
-        color: undefined !important;
-    }
-    .st-ui-injected-overlay-container .st-ui-header input[type="text"]:focus {
-        border-bottom: 2px solid undefined;
-    }
-    .st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link {
-        color: undefined;
-    }
-    .st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link span.st-ui-arrow {
-        border-color: undefined;
-    }
-</style>
-
-</div>
-        </div>
-    </div>
-    <div id="main-nav-mobile" class="header-sub header-inner">
-        <table class="menu outer">
-            <tr>
-                
-                    <td><a class="main-nav-link" href="/archives">archives</a></td>
-                
-                <td>
-                    
-    <div class="search-form">
-        <input type="text" class="st-default-search-input search-form-input" placeholder="Search" />
-    </div>
-
-                </td>
-            </tr>
-        </table>
-    </div>
-</header>
-
-        <div class="outer">
-            
-                
-
-<aside id="profile">
-    <div class="inner profile-inner">
-        <div class="base-info profile-block">
-            <img id="avatar" src="/css/images/self.png" />
-            <h2 id="name">mrluo</h2>
-            <h3 id="title">0 &amp; 1</h3>
-            <span id="location"><i class="fa fa-map-marker"></i>ShenZhen, China</span>
-            <a id="follow" target="_blank" href="https://coding.net/mrluos/">FOLLOW</a>
-        </div>
-        <div class="article-info profile-block">
-            <div class="article-info-block">
-                11
-                <span>posts</span>
-            </div>
-            <div class="article-info-block">
-                20
-                <span>tags</span>
-            </div>
-        </div>
-        
-        <div class="profile-block social-links">
-            <table>
-                <tr>
-                    
-                    <td><a href="https://coding.net/mrluos/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
-                    
-                    <td><a href="/" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
-                    
-                </tr>
-            </table>
-        </div>
-        
-    </div>
-</aside>
-
-            
-            <section id="main"><article id="post-【正则】分组、捕获、预查" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 class="article-title" itemprop="name">
-            【正则】分组、捕获、预查
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/04/08/【正则】分组、捕获、预查/">
-            <time datetime="2016-04-08T03:58:01.000Z" itemprop="datePublished">2016-04-08</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/javascript/">javascript</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/js/">js</a>, <a class="tag-link" href="/tags/正则表达式/">正则表达式</a>
-    </div>
-
-                </div>
-            </header>
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>上一篇<a href="/2016/04/08/正则表达式">正则表达式</a>我们介绍了正则表达式的基本规则，这篇主要是记录关于正则表达式里的捕获。</p>
-<h4 id="捕获"><a href="#捕获" class="headerlink" title="捕获"></a>捕获</h4><p>在上一篇中介绍了使用小括号包围起来的表达式,会捕获匹配的内容到默认的分组中。  </p>
+</script></head><body><input type="checkbox" id="sidebar-toggle"><aside><div class="author"><a href="/."><img src="/img/author.png" class="author-img"></a><h2 class="author-name">mrluo</h2></div><div class="post-toc"><span class="toc-title">Directory</span><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#捕获"><span class="toc-text">捕获</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非捕获"><span class="toc-text">非捕获</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#预查"><span class="toc-text">预查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟匹配过程"><span class="toc-text">模拟匹配过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正向预查"><span class="toc-text">正向预查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反向预查"><span class="toc-text">反向预查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></div></aside><div class="main"><header><div id="top"><a href="/." class="logo-link">mrluo</a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">Archive</a></li><li class="nav-list-item"><a href="/tags/" target="_self" class="nav-list-link">Tags</a></li></ul></div></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">【正则】分组、捕获、预查</h1><div class="post-time">Apr 8, 2016</div><div class="post-content"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上一篇<a href="/2016/04/08/正则表达式">正则表达式</a>我们介绍了正则表达式的基本规则，这篇主要是记录关于正则表达式里的捕获。</p>
+<h3 id="捕获"><a href="#捕获" class="headerlink" title="捕获"></a>捕获</h3><p>在上一篇中介绍了使用小括号包围起来的表达式,会捕获匹配的内容到默认的分组中。  </p>
 <blockquote>
 <p>捕获是指把匹配的内容进行存储并编号，方面后续的使用。</p>
 </blockquote>
-<h4 id="非捕获"><a href="#非捕获" class="headerlink" title="非捕获"></a>非捕获</h4><p>在实际实用中我们需要对字符进行分组匹配但是后续不需要操作匹配的内容，只是查找，如果我们使用（abc）这种模式明显就很浪费。<br>这里就引出只匹配不捕获的表达式：<br><strong>(?:abc)</strong> ： 匹配abc.但是不对匹配的内容进行捕获。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.match(<span class="regexp">/industr(?:i|ies)/g</span>); <span class="comment">//匹配industry 或者 industries</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="非捕获"><a href="#非捕获" class="headerlink" title="非捕获"></a>非捕获</h3><p>在实际实用中我们需要对字符进行分组匹配但是后续不需要操作匹配的内容，只是查找，如果我们使用（abc）这种模式明显就很浪费。<br>这里就引出只匹配不捕获的表达式：<br><strong>(?:abc)</strong> ： 匹配abc.但是不对匹配的内容进行捕获。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.match(<span class="regexp">/industr(?:i|ies)/g</span>); <span class="comment">//匹配industry 或者 industries</span></span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h4 id="预查"><a href="#预查" class="headerlink" title="预查"></a>预查</h4><p>在正则表达式中，预查（也叫断言）包括正向预查，反向预查,预查的特点是不消耗字符，所以也叫零宽度预查(断言).<br>什么叫不消耗字符,看下面的例子:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s=<span class="string">"test"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/te(?=s)t/</span>.test(s)); <span class="comment">//false;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/te(?=s)st/</span>.test(s)); <span class="comment">//true;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="预查"><a href="#预查" class="headerlink" title="预查"></a>预查</h3><p>在正则表达式中，预查（也叫断言）包括正向预查，反向预查,预查的特点是不消耗字符，所以也叫零宽度预查(断言).<br>什么叫不消耗字符,看下面的例子:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s=<span class="string">"test"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/te(?=s)t/</span>.test(s)); <span class="comment">//false;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/te(?=s)st/</span>.test(s)); <span class="comment">//true;</span></span><br></pre></td></tr></table></figure></p>
 <p>表达式(?=s)意思是正向肯定预查，在这里的意思是确定e后面的字符是s,如果不是s这个e就不会被匹配（作为匹配e字符的条件）因为不是所有的s字符后面都会跟着e的，关于这个表达式的详细解释我们后面再讨论。<br>这里我们想要突出的意思是 <strong>console.log(/te(?=s)t/.test(s))</strong>匹配失败，原因就是(?=s)并不会把s这个字符匹配出来（消耗掉），而是作为匹配字符e的前置条件。<br>如果还不明白我们可以看看正常的消耗字符的匹配<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'test'</span></span><br><span class="line">str.match(<span class="regexp">/\w&#123;1&#125;(?:\w&#123;1&#125;)/g</span>);<span class="comment">//["te", "st"]</span></span><br><span class="line"><span class="comment">//当\w&#123;1&#125;匹配到t,(?:\w&#123;1&#125;)匹配到e,这个时候本轮匹配结束，下轮匹配从s开始，并不是从e，说明了e已经被消耗掉了。</span></span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>基维百科：预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。</p>
 </blockquote>
-<h5 id="模拟匹配过程"><a href="#模拟匹配过程" class="headerlink" title="模拟匹配过程"></a>模拟匹配过程</h5><p>为了更好的理解消耗字符和不消耗字符匹配的区别，做了下面的模拟匹配过程。<br><strong>消耗字符</strong>的匹配的流程大概就是这样的一个过程(表达式 <code>\w{1}(?:\w{1})</code>,字符串<code>&#39;test&#39;</code>)：</p>
+<h3 id="模拟匹配过程"><a href="#模拟匹配过程" class="headerlink" title="模拟匹配过程"></a>模拟匹配过程</h3><p>为了更好的理解消耗字符和不消耗字符匹配的区别，做了下面的模拟匹配过程。<br><strong>消耗字符</strong>的匹配的流程大概就是这样的一个过程(表达式 <code>\w{1}(?:\w{1})</code>,字符串<code>&#39;test&#39;</code>)：</p>
 <table>
 <thead>
 <tr>
@@ -315,7 +93,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 </tbody>
 </table>
 <p>最后的结果为[‘t’,’e’,’s’];  </p>
-<h4 id="正向预查"><a href="#正向预查" class="headerlink" title="正向预查"></a>正向预查</h4><p>理解了预查不消耗字符的原理，我们回到正题，谈谈正向预查，正向预查分成2部分<code>正向肯定预查</code>(零宽度正预测先行断言)和<code>正向否定预查</code>(零宽度负预测先行断言)：</p>
+<h3 id="正向预查"><a href="#正向预查" class="headerlink" title="正向预查"></a>正向预查</h3><p>理解了预查不消耗字符的原理，我们回到正题，谈谈正向预查，正向预查分成2部分<code>正向肯定预查</code>(零宽度正预测先行断言)和<code>正向否定预查</code>(零宽度负预测先行断言)：</p>
 <ol>
 <li><p><strong>正向肯定预查</strong><br>格式<strong>(?=exp)</strong>,通俗的理解是<strong>如果当前匹配的字符后面紧跟着<code>是</code>exp则匹配当前字符，否则不匹配</strong>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'test'</span>;</span><br><span class="line">str.match(<span class="regexp">/\w(?=t)/g</span>) [<span class="string">"s"</span>]</span><br></pre></td></tr></table></figure>
@@ -324,7 +102,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'test'</span>;</span><br><span class="line">str.match(<span class="regexp">/\w(?!t)/g</span>) [<span class="string">"t"</span>,<span class="string">"e"</span>,<span class="string">"t"</span>]</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="反向预查"><a href="#反向预查" class="headerlink" title="反向预查"></a>反向预查</h4><p>反向预查也同样分成<code>反向肯定预查</code>(零宽度正回顾后发断言)和<code>反向否定预查</code>(零宽度负回顾后发断言)：</p>
+<h3 id="反向预查"><a href="#反向预查" class="headerlink" title="反向预查"></a>反向预查</h3><p>反向预查也同样分成<code>反向肯定预查</code>(零宽度正回顾后发断言)和<code>反向否定预查</code>(零宽度负回顾后发断言)：</p>
 <ol>
 <li><p><strong>反向肯定预查</strong><br>格式<strong>(?&lt;=exp)</strong>,跟正向肯定预查相似，反向肯定预查是<strong>当前匹配的字符前面紧跟着<code>是</code>exp则匹配当前字符，否则不匹配</strong>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str=<span class="string">'test'</span>;</span><br><span class="line">(?&lt;=t)\w  //["e"]</span><br></pre></td></tr></table></figure>
@@ -336,7 +114,7 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 <blockquote>
 <p>js中不支持反向预查，所有上面的代码使用的是伪代码.(php、java等语言是支持反向的).</p>
 </blockquote>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>我们来总结关于分组操作的一些区别</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>我们来总结关于分组操作的一些区别</p>
 <table>
 <thead>
 <tr>
@@ -401,220 +179,12 @@ _st('install','veRYnqpReruKjSxAyrSR','2.0.0');
 </tr>
 </tbody>
 </table>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p>百度百科正则表达式</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2016/04/08/【正则】分组、捕获、预查/" data-id="cimwsg3h3000m3o9gg0i0fg4g" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://yoursite.com/2016/04/08/【正则】分组、捕获、预查/#comments" class="article-comment-link ds-thread-count" data-thread-key="2016/04/08/【正则】分组、捕获、预查/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2016/04/09/常用正则记录/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    常用正则记录
-                
-            </div>
-        </a>
-    
-    
-        <a href="/2016/04/06/正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">正则表达式</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    <section id="comments">
-    
-        
-    <div class="ds-thread" data-thread-key="2016/04/08/【正则】分组、捕获、预查/" data-title="【正则】分组、捕获、预查" data-url="http://yoursite.com/2016/04/08/【正则】分组、捕获、预查/"></div>
-    <style>
-        #ds-thread #ds-reset .ds-textarea-wrapper {
-            background: none;
-        }
-        #ds-reset .ds-avatar img {
-            box-shadow: none;
-        }
-        #ds-reset .ds-gradient-bg {
-            background: #f7f7f7;
-        }
-        #ds-thread #ds-reset li.ds-tab a {
-            border-radius: 3px;
-        }
-        #ds-thread #ds-reset .ds-post-button {
-            color: white;
-            border: none;
-            box-shadow: none;
-            background: #d32;
-            text-shadow: none;
-            font-weight: normal;
-            font-family: 'Microsoft Yahei';
-        }
-        #ds-thread #ds-reset .ds-post-button:hover {
-            color: white;
-            background: #DE594C;
-        }
-        #ds-thread #ds-reset .ds-post-button:active {
-            background: #d32;
-        }
-        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
-            color: white;
-            background: #d32;
-            box-shadow: none;
-            text-shadow: none;
-            font-weight: normal;
-        }
-    </style>
-
-    
-    </section>
-
-</section>
-            
-                <aside id="sidebar">
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">categories</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Functional-Programming/">Functional Programming</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/grunt/">grunt</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">4</span></li></ul>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">archives</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">8</span></li></ul>
-        </div>
-    </div>
-
-    
-    <div id="toTop" class="fa fa-chevron-up"></div>
-</aside>
-            
-        </div>
-        <footer id="footer">
-    <div class="outer">
-        <div id="footer-info" class="inner">
-            &copy; 2016 mrluo<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-        </div>
-    </div>
-</footer>
-        
-    
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:'mrluos'};
-    (function() {
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>百度百科正则表达式</p>
+</div></article></div><div class="tags"><a href="/tags/js/">js</a><a href="/tags/正则表达式/">正则表达式</a></div><div class="paginator"><a href="/2016/04/09/常用正则记录/" class="prev"><i class="fa fa-chevron-left"></i><span> Prev</span></a><a href="/2016/04/06/正则表达式(下)/" class="next"><span>Next</span><i class="fa fa-chevron-right"></i></a></div></section><footer><section id="comments"><div data-thread-key="http://yoursite.com/2016/04/08/【正则】分组、捕获、预查/index.html" data-title="【正则】分组、捕获、预查" data-url="http://yoursite.com/2016/04/08/【正则】分组、捕获、预查/index.html" class="ds-thread"></div><script type="text/javascript">var duoshuoQuery = {short_name: "mrluos" };
+(function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;
     ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
     ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-
-
-
-    
-        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
-    
-
-
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
-
-    </div>
-</body>
-</html>
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();</script></section><div class="copyright"><p>© 2016<span class="heart"><i class="icon-next-heart fa fa-heart"></i></span><a href="http://yoursite.com">mrluo</a></p></div></footer></div><label for="sidebar-toggle" class="sidebar-menu"><div class="menu"></div></label><label class="back2top"> <a href="#top"><div class="arrow"></div></a></label></body></html>

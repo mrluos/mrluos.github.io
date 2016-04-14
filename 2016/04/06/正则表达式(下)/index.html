@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>正则表达式(下) · mrluo</title><meta name="description" content="正则表达式(下) - mrluo"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.ico"><link rel="stylesheet" href="/css/style.css"><!-- fonts--><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="stylesheet" href="http://fonts.lug.ustc.edu.cn/css?family=Source+Sans+Pro:400,600" type="text/css"><!-- baidu analytics--><script type="text/javascript">var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?3ee91d14584b24f0f7509f558e910b42";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script></head><body><input type="checkbox" id="sidebar-toggle"><aside><div class="author"><a href="/."><img src="/img/author.png" class="author-img"></a><h2 class="author-name">mrluo</h2></div><div class="post-toc"><span class="toc-title">Directory</span><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#匹配自定义的集合"><span class="toc-text">匹配自定义的集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反向匹配"><span class="toc-text">反向匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分组和引用"><span class="toc-text">分组和引用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#分组"><span class="toc-text">分组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引用"><span class="toc-text">引用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回顾"><span class="toc-text">回顾</span></a></li></ol></div></aside><div class="main"><header><div id="top"><a href="/." class="logo-link">mrluo</a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">Archive</a></li><li class="nav-list-item"><a href="/tags/" target="_self" class="nav-list-link">Tags</a></li></ul></div></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">正则表达式(下)</h1><div class="post-time">Apr 6, 2016</div><div class="post-content"><h3 id="匹配自定义的集合"><a href="#匹配自定义的集合" class="headerlink" title="匹配自定义的集合"></a>匹配自定义的集合</h3><p>当上面的元字符指定的匹配规则并不满足你的需求的时候,你可以自己定义匹配的规则：<br>例如想要匹配元音字符（aeiou）可以使用/[aeiou]/，它能匹配一个字符串中任意数量的aeiou字符，例如能匹配“hi”中的i。<br>自定义匹配集合就是使用<strong>中括号</strong>包围字符集合，例如[0-9]匹配所有的正整数，相当于\d,[a-zA-Z]匹配所有的大小写字母。</p>
+<blockquote>
+<p>这里集合中使用了<strong>-</strong>，只有<strong>-</strong>在字符组（方括号）内部,并且出现在两个字符之间时,才能表示字符的范围; 如果出字符组的开头,则只能表示<strong>‘-‘</strong>本身.<br>例如[-az]表示的是匹配’-‘,’a’,’z’这三个字符。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="反向匹配"><a href="#反向匹配" class="headerlink" title="反向匹配"></a>反向匹配</h3><p>如果不想匹配指定的字符则需要加上’^’(英文输入法下，键盘6的位置):<br>在前面讲过元字符’^’表示匹配开头的位置，如果^出现在方括号的<strong>开头位置</strong>表示的是<strong>不匹配</strong> 。<br>例如[^aeiou]，匹配除了aeiou以外的其他字符。  </p>
+<table>
+<thead>
+<tr>
+<th>字符组</th>
+<th style="text-align:left">描述 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[abc]</td>
+<td style="text-align:left">匹配abc字符集中的任意一个</td>
+</tr>
+<tr>
+<td>[^abc]</td>
+<td style="text-align:left">匹配除了abc字符集的任意字符，例如：123abce，匹配出123e。</td>
+</tr>
+<tr>
+<td>[a-z]</td>
+<td style="text-align:left">匹配a-z字符集范围内的字符</td>
+</tr>
+<tr>
+<td>[^a-z]</td>
+<td style="text-align:left">匹配不在a-z字符集范围内的字符</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>当这个字符组（中括号包含的字符）后面使用次数（匹配次数的元字符）修饰的时候，匹配的次数不是以<strong>字符组整体</strong>当做一个匹配标本，而是字符组内的各个字符。</p>
+</blockquote>
+<p>上面描述的意思是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">"aeiou456aeiouai123"</span>;</span><br><span class="line">str.match(<span class="regexp">/[aeiou]&#123;6&#125;/g</span>) <span class="comment">//匹配出aeioua这6个字符而不是6个aeiou连成的字符。</span></span><br><span class="line">str.match(<span class="regexp">/[aeiou]&#123;7&#125;/g</span>) <span class="comment">//匹配出aeiouai.</span></span><br><span class="line">str.match(<span class="regexp">/[aeiou]&#123;3&#125;/g</span>) <span class="comment">//匹配出aei（456前面的aei）、aei(456后面的aei)、oua。</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="分组和引用"><a href="#分组和引用" class="headerlink" title="分组和引用"></a>分组和引用</h3><p>通过前面<code>匹配次数的元字符</code>的介绍，我们知道单字符如何重复匹配，如果是多个字符如何重复，可能会想到用上面介绍的字符集合（放到[]里？），但是字符集合的重复匹配，不是以字符集合为整体的，并且匹配的数据不能进行引用。这个时候我们就需要用到子表达式(分组)。</p>
+<h4 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h4><p>语法就是一对括号(),把需要重复匹配的字符放到这个分组(括号)里，后面可以就可以指定这个分组的重复次数了,例如这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'testtt1ttest23tt'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//例1</span></span><br><span class="line">str.match(<span class="regexp">/(test)&#123;1&#125;/g</span>); <span class="comment">//["test","test"]</span></span><br><span class="line">从输出结果我们就可以看到()跟[]的区别，()是当做一个整体的重复。</span><br><span class="line"></span><br><span class="line"><span class="comment">//例2</span></span><br><span class="line">str.match(<span class="regexp">/(^test)/g</span>); <span class="comment">//["test"]</span></span><br><span class="line">str.match(<span class="regexp">/[^test]/g</span>); <span class="comment">//["1","2","3"]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>从上面的例2可以看出在()内使用<code>^</code>并不像在[]一样是取反，而是<code>^</code>匹配开头的位置。</p>
+</blockquote>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>上面介绍了分组的重复匹配，如果想要把匹配到的分组内容,取出来要如何操作呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'tetetet1tteste23te23'</span>;</span><br><span class="line">str.match(<span class="regexp">/(te)\1/g</span>); <span class="comment">//["tete"]</span></span><br><span class="line"></span><br><span class="line">str.match(<span class="regexp">/(?&lt;myGroup&gt;te)\k&lt;myGroup&gt;/g</span>); <span class="comment">//["tete"]</span></span><br></pre></td></tr></table></figure>
+<p>表达式中的\1就是引用1分组，意思是引用前面<strong>第一个</strong>匹配（捕获）到的分组,格式就是’\’+一个正整数.<br>如果要自定义分组的名称（不使用默认的数字）：<br>格式是:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?&lt;name&gt; 或者 ?'name',引用\k&lt;name&gt; 或者\k'name'</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>js 并不支持分组别名…</p>
+</blockquote>
+<p>关于分组捕获的还有很多内容，下一篇接着介绍.</p>
+<h3 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h3> <a href="/2016/04/06/正则表达式(上)/" title="正则表达式(上)">正则表达式(上)</a>
+</div></article></div><div class="tags"><a href="/tags/js/">js</a><a href="/tags/正则表达式/">正则表达式</a></div><div class="paginator"><a href="/2016/04/08/【正则】分组、捕获、预查/" class="prev"><i class="fa fa-chevron-left"></i><span> Prev</span></a><a href="/2016/04/06/正则表达式(上)/" class="next"><span>Next</span><i class="fa fa-chevron-right"></i></a></div></section><footer><section id="comments"><div data-thread-key="http://yoursite.com/2016/04/06/正则表达式(下)/index.html" data-title="正则表达式(下)" data-url="http://yoursite.com/2016/04/06/正则表达式(下)/index.html" class="ds-thread"></div><script type="text/javascript">var duoshuoQuery = {short_name: "mrluos" };
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();</script></section><div class="copyright"><p>© 2016<span class="heart"><i class="icon-next-heart fa fa-heart"></i></span><a href="http://yoursite.com">mrluo</a></p></div></footer></div><label for="sidebar-toggle" class="sidebar-menu"><div class="menu"></div></label><label class="back2top"> <a href="#top"><div class="arrow"></div></a></label></body></html>
