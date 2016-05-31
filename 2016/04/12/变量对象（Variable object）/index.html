@@ -64,12 +64,12 @@
 <footer><strong>Dmitry Soshnikov</strong><cite><a href="http://dmitrysoshnikov.com/ecmascript/chapter-2-variable-object/" target="_blank" rel="external">Variable Object</a></cite></footer></blockquote><br>只是创建了一个全局的属性，并不是变量，这里说的“不是变量”，并不是说它不能改变，只是说这种写法是不符合ECMAScript变量规范。<br>之所以上面的code能不出错的运行是因为前面说过的全局的VO===global.</p>
 <p>关于是用var申明后赋值和不用直接赋值的区别？</p>
 <ol>
-<li>使用var申明的叫变量（也叫显示申明），是不可以使用delete操作符的。</li>
+<li>使用var申明的叫变量（也叫显式申明），是不可以使用delete操作符的。</li>
 <li>直接赋值也叫隐式申明，它会在全局对象中创建一个属性，是可以使用delete操作符的。</li>
 </ol>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://dmitrysoshnikov.com/ecmascript/chapter-2-variable-object/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 2. Variable object</a></p>
 <p><a href="http://bclary.com/log/2004/11/07/#a-10.1.3" target="_blank" rel="external">Variable Instantiation</a></p>
-</div></article></div><div class="tags"><a href="/tags/js/">js</a><a href="/tags/js深入系列/">js深入系列</a><a href="/tags/js变量对象/">js变量对象</a></div><div class="paginator"><a href="/2016/04/12/this/" class="prev"><i class="fa fa-chevron-left"></i><span> Prev</span></a><a href="/2016/04/12/执行上下文(Execution-Context)/" class="next"><span>Next</span><i class="fa fa-chevron-right"></i></a></div></section><footer><section id="comments"><div data-thread-key="http://mrluos.coding.io/2016/04/12/变量对象（Variable object）/index.html" data-title="变量对象（Variable object）" data-url="http://mrluos.coding.io/2016/04/12/变量对象（Variable object）/index.html" class="ds-thread"></div><script type="text/javascript">var duoshuoQuery = {short_name: "mrluos" };
+</div></article></div><div class="tags"><a href="/tags/js/">js</a><a href="/tags/js深入系列/">js深入系列</a><a href="/tags/js变量对象/">js变量对象</a></div><div class="paginator"><a href="/2016/04/12/执行上下文(Execution-Context)/" class="next"><span>Next</span><i class="fa fa-chevron-right"></i></a></div></section><footer><section id="comments"><div data-thread-key="http://mrluos.coding.io/2016/04/12/变量对象（Variable object）/index.html" data-title="变量对象（Variable object）" data-url="http://mrluos.coding.io/2016/04/12/变量对象（Variable object）/index.html" class="ds-thread"></div><script type="text/javascript">var duoshuoQuery = {short_name: "mrluos" };
 (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;
