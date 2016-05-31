@@ -263,9 +263,9 @@
     <link href="http://mrluos.coding.io/2016/04/08/%E3%80%90%E6%AD%A3%E5%88%99%E3%80%91%E5%88%86%E7%BB%84%E3%80%81%E6%8D%95%E8%8E%B7%E3%80%81%E9%A2%84%E6%9F%A5/"/>
     <id>http://mrluos.coding.io/2016/04/08/【正则】分组、捕获、预查/</id>
     <published>2016-04-08T03:58:01.000Z</published>
-    <updated>2016-05-31T09:19:03.277Z</updated>
+    <updated>2016-05-31T09:20:15.076Z</updated>
     
-    <content type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;上一篇&lt;a href=&quot;&amp;#39;/2016/04/06/正则表达式(上&quot;&gt;正则表达式(上)&lt;/a&gt;‘)我们介绍了正则表达式的基本规则，这篇主要是记录关于正则表达式里的捕获。&lt;/p&gt;
+    <content type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;上一篇&lt;a href=&quot;/2016/04/06/正则表达式(上)/&quot; title=&quot;正则表达式(上)&quot;&gt;正则表达式(上)&lt;/a&gt;我们介绍了正则表达式的基本规则，这篇主要是记录关于正则表达式里的捕获。&lt;/p&gt;
 &lt;h3 id=&quot;捕获&quot;&gt;&lt;a href=&quot;#捕获&quot; class=&quot;headerlink&quot; title=&quot;捕获&quot;&gt;&lt;/a&gt;捕获&lt;/h3&gt;&lt;p&gt;在上一篇中介绍了使用小括号包围起来的表达式,会捕获匹配的内容到默认的分组中。  &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;捕获是指把匹配的内容进行存储并编号，方面后续的使用。&lt;/p&gt;
@@ -444,12 +444,89 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;上一篇&lt;a href=&quot;&amp;#39;/2016/04/06/正则表达式(上&quot;&gt;正则表达式(上)&lt;/a&gt;‘)我们介绍了正则表达式的基本规则，这篇主要是记录关于正则表达式里的捕获。&lt;/p&gt;
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;上一篇&lt;a href=&quot;/2016/04/06/正则表达式(上)/&quot; title=&quot;正则表达式(上)&quot;&gt;正则表达式(上)&lt;/a&gt;我们介绍了正则表达式的基本规则，这篇主要是记录关于正则表达式里的捕获。&lt;/p&gt;
 &lt;h3 id=&quot;捕获&quot;&gt;&lt;a href=&quot;#捕获&quot; class=&quot;headerlink&quot; title=&quot;捕获&quot;&gt;&lt;/a&gt;捕获&lt;/h3&gt;&lt;p&gt;在上一篇中介绍了使用小括号包围起来的表达式,会捕获匹配的内容到默认的分组中。  &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;捕获是指把匹配的内容进行存储并编号，方面后续的使用。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;非捕获&quot;&gt;&lt;a href=&quot;#非捕获&quot; class=&quot;headerlink&quot; title=&quot;非捕获&quot;&gt;&lt;/a&gt;非捕获&lt;/h3&gt;&lt;p&gt;在实际实用中我们需要对字符进行分组匹配但是后续不需要操作匹配的内容，只是查找，如果我们使用（abc）这种模式明显就很浪费。&lt;br&gt;这里就引出只匹配不捕获的表达式：&lt;br&gt;&lt;strong&gt;(?:abc)&lt;/strong&gt; ： 匹配abc.但是不对匹配的内容进行捕获。&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/industr(?:i|ies)/g&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//匹配industry 或者 industries&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://mrluos.coding.io/categories/javascript/"/>
+    
+    
+      <category term="js" scheme="http://mrluos.coding.io/tags/js/"/>
+    
+      <category term="正则表达式" scheme="http://mrluos.coding.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>正则表达式(下)</title>
+    <link href="http://mrluos.coding.io/2016/04/06/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F(%E4%B8%8B)/"/>
+    <id>http://mrluos.coding.io/2016/04/06/正则表达式(下)/</id>
+    <published>2016-04-06T03:29:26.000Z</published>
+    <updated>2016-04-13T10:18:30.947Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;匹配自定义的集合&quot;&gt;&lt;a href=&quot;#匹配自定义的集合&quot; class=&quot;headerlink&quot; title=&quot;匹配自定义的集合&quot;&gt;&lt;/a&gt;匹配自定义的集合&lt;/h3&gt;&lt;p&gt;当上面的元字符指定的匹配规则并不满足你的需求的时候,你可以自己定义匹配的规则：&lt;br&gt;例如想要匹配元音字符（aeiou）可以使用/[aeiou]/，它能匹配一个字符串中任意数量的aeiou字符，例如能匹配“hi”中的i。&lt;br&gt;自定义匹配集合就是使用&lt;strong&gt;中括号&lt;/strong&gt;包围字符集合，例如[0-9]匹配所有的正整数，相当于\d,[a-zA-Z]匹配所有的大小写字母。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里集合中使用了&lt;strong&gt;-&lt;/strong&gt;，只有&lt;strong&gt;-&lt;/strong&gt;在字符组（方括号）内部,并且出现在两个字符之间时,才能表示字符的范围; 如果出字符组的开头,则只能表示&lt;strong&gt;‘-‘&lt;/strong&gt;本身.&lt;br&gt;例如[-az]表示的是匹配’-‘,’a’,’z’这三个字符。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;反向匹配&quot;&gt;&lt;a href=&quot;#反向匹配&quot; class=&quot;headerlink&quot; title=&quot;反向匹配&quot;&gt;&lt;/a&gt;反向匹配&lt;/h3&gt;&lt;p&gt;如果不想匹配指定的字符则需要加上’^’(英文输入法下，键盘6的位置):&lt;br&gt;在前面讲过元字符’^’表示匹配开头的位置，如果^出现在方括号的&lt;strong&gt;开头位置&lt;/strong&gt;表示的是&lt;strong&gt;不匹配&lt;/strong&gt; 。&lt;br&gt;例如[^aeiou]，匹配除了aeiou以外的其他字符。  &lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字符组&lt;/th&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;描述 &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;[abc]&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;匹配abc字符集中的任意一个&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[^abc]&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;匹配除了abc字符集的任意字符，例如：123abce，匹配出123e。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[a-z]&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;匹配a-z字符集范围内的字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[^a-z]&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;匹配不在a-z字符集范围内的字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当这个字符组（中括号包含的字符）后面使用次数（匹配次数的元字符）修饰的时候，匹配的次数不是以&lt;strong&gt;字符组整体&lt;/strong&gt;当做一个匹配标本，而是字符组内的各个字符。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;上面描述的意思是：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; str=&lt;span class=&quot;string&quot;&gt;&quot;aeiou456aeiouai123&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/[aeiou]&amp;#123;6&amp;#125;/g&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;//匹配出aeioua这6个字符而不是6个aeiou连成的字符。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/[aeiou]&amp;#123;7&amp;#125;/g&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;//匹配出aeiouai.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/[aeiou]&amp;#123;3&amp;#125;/g&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;//匹配出aei（456前面的aei）、aei(456后面的aei)、oua。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;分组和引用&quot;&gt;&lt;a href=&quot;#分组和引用&quot; class=&quot;headerlink&quot; title=&quot;分组和引用&quot;&gt;&lt;/a&gt;分组和引用&lt;/h3&gt;&lt;p&gt;通过前面&lt;code&gt;匹配次数的元字符&lt;/code&gt;的介绍，我们知道单字符如何重复匹配，如果是多个字符如何重复，可能会想到用上面介绍的字符集合（放到[]里？），但是字符集合的重复匹配，不是以字符集合为整体的，并且匹配的数据不能进行引用。这个时候我们就需要用到子表达式(分组)。&lt;/p&gt;
+&lt;h4 id=&quot;分组&quot;&gt;&lt;a href=&quot;#分组&quot; class=&quot;headerlink&quot; title=&quot;分组&quot;&gt;&lt;/a&gt;分组&lt;/h4&gt;&lt;p&gt;语法就是一对括号(),把需要重复匹配的字符放到这个分组(括号)里，后面可以就可以指定这个分组的重复次数了,例如这样：&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; str=&lt;span class=&quot;string&quot;&gt;&#39;testtt1ttest23tt&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//例1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/(test)&amp;#123;1&amp;#125;/g&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//[&quot;test&quot;,&quot;test&quot;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;从输出结果我们就可以看到()跟[]的区别，()是当做一个整体的重复。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//例2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/(^test)/g&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//[&quot;test&quot;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/[^test]/g&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//[&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;从上面的例2可以看出在()内使用&lt;code&gt;^&lt;/code&gt;并不像在[]一样是取反，而是&lt;code&gt;^&lt;/code&gt;匹配开头的位置。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;引用&quot;&gt;&lt;a href=&quot;#引用&quot; class=&quot;headerlink&quot; title=&quot;引用&quot;&gt;&lt;/a&gt;引用&lt;/h4&gt;&lt;p&gt;上面介绍了分组的重复匹配，如果想要把匹配到的分组内容,取出来要如何操作呢？&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; str=&lt;span class=&quot;string&quot;&gt;&#39;tetetet1tteste23te23&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/(te)\1/g&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//[&quot;tete&quot;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/(?&amp;lt;myGroup&amp;gt;te)\k&amp;lt;myGroup&amp;gt;/g&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//[&quot;tete&quot;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;表达式中的\1就是引用1分组，意思是引用前面&lt;strong&gt;第一个&lt;/strong&gt;匹配（捕获）到的分组,格式就是’\’+一个正整数.&lt;br&gt;如果要自定义分组的名称（不使用默认的数字）：&lt;br&gt;格式是:&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;?&amp;lt;name&amp;gt; 或者 ?&#39;name&#39;,引用\k&amp;lt;name&amp;gt; 或者\k&#39;name&#39;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;js 并不支持分组别名…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;关于分组捕获的还有很多内容，下一篇接着介绍.&lt;/p&gt;
+&lt;h3 id=&quot;回顾&quot;&gt;&lt;a href=&quot;#回顾&quot; class=&quot;headerlink&quot; title=&quot;回顾&quot;&gt;&lt;/a&gt;回顾&lt;/h3&gt; &lt;a href=&quot;/2016/04/06/正则表达式(上)/&quot; title=&quot;正则表达式(上)&quot;&gt;正则表达式(上)&lt;/a&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;匹配自定义的集合&quot;&gt;&lt;a href=&quot;#匹配自定义的集合&quot; class=&quot;headerlink&quot; title=&quot;匹配自定义的集合&quot;&gt;&lt;/a&gt;匹配自定义的集合&lt;/h3&gt;&lt;p&gt;当上面的元字符指定的匹配规则并不满足你的需求的时候,你可以自己定义匹配的规则：&lt;br&gt;例如想要匹配元音字符（aeiou）可以使用/[aeiou]/，它能匹配一个字符串中任意数量的aeiou字符，例如能匹配“hi”中的i。&lt;br&gt;自定义匹配集合就是使用&lt;strong&gt;中括号&lt;/strong&gt;包围字符集合，例如[0-9]匹配所有的正整数，相当于\d,[a-zA-Z]匹配所有的大小写字母。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里集合中使用了&lt;strong&gt;-&lt;/strong&gt;，只有&lt;strong&gt;-&lt;/strong&gt;在字符组（方括号）内部,并且出现在两个字符之间时,才能表示字符的范围; 如果出字符组的开头,则只能表示&lt;strong&gt;‘-‘&lt;/strong&gt;本身.&lt;br&gt;例如[-az]表示的是匹配’-‘,’a’,’z’这三个字符。&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -593,83 +670,6 @@
       &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;记录如何学习和使用正则表达式。&lt;/p&gt;
 &lt;h3 id=&quot;正则表达式&quot;&gt;&lt;a href=&quot;#正则表达式&quot; class=&quot;headerlink&quot; title=&quot;正则表达式&quot;&gt;&lt;/a&gt;正则表达式&lt;/h3&gt;&lt;p&gt;我对正则表达式的理解就是，用&lt;code&gt;普通字符&lt;/code&gt;和&lt;code&gt;特定字符&lt;/code&gt;组成一个“规则字符串”，用这个“规则字符串”来过滤操作的对象。正则表达式的规则不局限于语言，所以学习好正则能受用于各个平台。&lt;/p&gt;
 &lt;h3 id=&quot;字符&quot;&gt;&lt;a href=&quot;#字符&quot; class=&quot;headerlink&quot; title=&quot;字符&quot;&gt;&lt;/a&gt;字符&lt;/h3&gt;&lt;p&gt;一个正则表达式可以由下面两种字符类型组合而成，也可以是单一的一种字符类型组成：&lt;br&gt;&lt;code&gt;普通字符&lt;/code&gt;:包括大小写的字母和数字.&lt;br&gt;&lt;code&gt;特定字符&lt;/code&gt;:在正则表达式中规定了一些代表某种意义的字符，也叫元字符。     &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://mrluos.coding.io/categories/javascript/"/>
-    
-    
-      <category term="js" scheme="http://mrluos.coding.io/tags/js/"/>
-    
-      <category term="正则表达式" scheme="http://mrluos.coding.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正则表达式(下)</title>
-    <link href="http://mrluos.coding.io/2016/04/06/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F(%E4%B8%8B)/"/>
-    <id>http://mrluos.coding.io/2016/04/06/正则表达式(下)/</id>
-    <published>2016-04-06T03:29:26.000Z</published>
-    <updated>2016-04-13T10:18:30.947Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;匹配自定义的集合&quot;&gt;&lt;a href=&quot;#匹配自定义的集合&quot; class=&quot;headerlink&quot; title=&quot;匹配自定义的集合&quot;&gt;&lt;/a&gt;匹配自定义的集合&lt;/h3&gt;&lt;p&gt;当上面的元字符指定的匹配规则并不满足你的需求的时候,你可以自己定义匹配的规则：&lt;br&gt;例如想要匹配元音字符（aeiou）可以使用/[aeiou]/，它能匹配一个字符串中任意数量的aeiou字符，例如能匹配“hi”中的i。&lt;br&gt;自定义匹配集合就是使用&lt;strong&gt;中括号&lt;/strong&gt;包围字符集合，例如[0-9]匹配所有的正整数，相当于\d,[a-zA-Z]匹配所有的大小写字母。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这里集合中使用了&lt;strong&gt;-&lt;/strong&gt;，只有&lt;strong&gt;-&lt;/strong&gt;在字符组（方括号）内部,并且出现在两个字符之间时,才能表示字符的范围; 如果出字符组的开头,则只能表示&lt;strong&gt;‘-‘&lt;/strong&gt;本身.&lt;br&gt;例如[-az]表示的是匹配’-‘,’a’,’z’这三个字符。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;反向匹配&quot;&gt;&lt;a href=&quot;#反向匹配&quot; class=&quot;headerlink&quot; title=&quot;反向匹配&quot;&gt;&lt;/a&gt;反向匹配&lt;/h3&gt;&lt;p&gt;如果不想匹配指定的字符则需要加上’^’(英文输入法下，键盘6的位置):&lt;br&gt;在前面讲过元字符’^’表示匹配开头的位置，如果^出现在方括号的&lt;strong&gt;开头位置&lt;/strong&gt;表示的是&lt;strong&gt;不匹配&lt;/strong&gt; 。&lt;br&gt;例如[^aeiou]，匹配除了aeiou以外的其他字符。  &lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;字符组&lt;/th&gt;
-&lt;th style=&quot;text-align:left&quot;&gt;描述 &lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;[abc]&lt;/td&gt;
-&lt;td style=&quot;text-align:left&quot;&gt;匹配abc字符集中的任意一个&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;[^abc]&lt;/td&gt;
-&lt;td style=&quot;text-align:left&quot;&gt;匹配除了abc字符集的任意字符，例如：123abce，匹配出123e。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;[a-z]&lt;/td&gt;
-&lt;td style=&quot;text-align:left&quot;&gt;匹配a-z字符集范围内的字符&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;[^a-z]&lt;/td&gt;
-&lt;td style=&quot;text-align:left&quot;&gt;匹配不在a-z字符集范围内的字符&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;blockquote&gt;
-&lt;p&gt;当这个字符组（中括号包含的字符）后面使用次数（匹配次数的元字符）修饰的时候，匹配的次数不是以&lt;strong&gt;字符组整体&lt;/strong&gt;当做一个匹配标本，而是字符组内的各个字符。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;上面描述的意思是：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; str=&lt;span class=&quot;string&quot;&gt;&quot;aeiou456aeiouai123&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/[aeiou]&amp;#123;6&amp;#125;/g&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;//匹配出aeioua这6个字符而不是6个aeiou连成的字符。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/[aeiou]&amp;#123;7&amp;#125;/g&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;//匹配出aeiouai.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/[aeiou]&amp;#123;3&amp;#125;/g&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;//匹配出aei（456前面的aei）、aei(456后面的aei)、oua。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;分组和引用&quot;&gt;&lt;a href=&quot;#分组和引用&quot; class=&quot;headerlink&quot; title=&quot;分组和引用&quot;&gt;&lt;/a&gt;分组和引用&lt;/h3&gt;&lt;p&gt;通过前面&lt;code&gt;匹配次数的元字符&lt;/code&gt;的介绍，我们知道单字符如何重复匹配，如果是多个字符如何重复，可能会想到用上面介绍的字符集合（放到[]里？），但是字符集合的重复匹配，不是以字符集合为整体的，并且匹配的数据不能进行引用。这个时候我们就需要用到子表达式(分组)。&lt;/p&gt;
-&lt;h4 id=&quot;分组&quot;&gt;&lt;a href=&quot;#分组&quot; class=&quot;headerlink&quot; title=&quot;分组&quot;&gt;&lt;/a&gt;分组&lt;/h4&gt;&lt;p&gt;语法就是一对括号(),把需要重复匹配的字符放到这个分组(括号)里，后面可以就可以指定这个分组的重复次数了,例如这样：&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; str=&lt;span class=&quot;string&quot;&gt;&#39;testtt1ttest23tt&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//例1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/(test)&amp;#123;1&amp;#125;/g&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//[&quot;test&quot;,&quot;test&quot;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;从输出结果我们就可以看到()跟[]的区别，()是当做一个整体的重复。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//例2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/(^test)/g&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//[&quot;test&quot;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/[^test]/g&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//[&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
-&lt;p&gt;从上面的例2可以看出在()内使用&lt;code&gt;^&lt;/code&gt;并不像在[]一样是取反，而是&lt;code&gt;^&lt;/code&gt;匹配开头的位置。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&quot;引用&quot;&gt;&lt;a href=&quot;#引用&quot; class=&quot;headerlink&quot; title=&quot;引用&quot;&gt;&lt;/a&gt;引用&lt;/h4&gt;&lt;p&gt;上面介绍了分组的重复匹配，如果想要把匹配到的分组内容,取出来要如何操作呢？&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; str=&lt;span class=&quot;string&quot;&gt;&#39;tetetet1tteste23te23&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/(te)\1/g&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//[&quot;tete&quot;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;str.match(&lt;span class=&quot;regexp&quot;&gt;/(?&amp;lt;myGroup&amp;gt;te)\k&amp;lt;myGroup&amp;gt;/g&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//[&quot;tete&quot;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;表达式中的\1就是引用1分组，意思是引用前面&lt;strong&gt;第一个&lt;/strong&gt;匹配（捕获）到的分组,格式就是’\’+一个正整数.&lt;br&gt;如果要自定义分组的名称（不使用默认的数字）：&lt;br&gt;格式是:&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;?&amp;lt;name&amp;gt; 或者 ?&#39;name&#39;,引用\k&amp;lt;name&amp;gt; 或者\k&#39;name&#39;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;js 并不支持分组别名…&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;关于分组捕获的还有很多内容，下一篇接着介绍.&lt;/p&gt;
-&lt;h3 id=&quot;回顾&quot;&gt;&lt;a href=&quot;#回顾&quot; class=&quot;headerlink&quot; title=&quot;回顾&quot;&gt;&lt;/a&gt;回顾&lt;/h3&gt; &lt;a href=&quot;/2016/04/06/正则表达式(上)/&quot; title=&quot;正则表达式(上)&quot;&gt;正则表达式(上)&lt;/a&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;匹配自定义的集合&quot;&gt;&lt;a href=&quot;#匹配自定义的集合&quot; class=&quot;headerlink&quot; title=&quot;匹配自定义的集合&quot;&gt;&lt;/a&gt;匹配自定义的集合&lt;/h3&gt;&lt;p&gt;当上面的元字符指定的匹配规则并不满足你的需求的时候,你可以自己定义匹配的规则：&lt;br&gt;例如想要匹配元音字符（aeiou）可以使用/[aeiou]/，它能匹配一个字符串中任意数量的aeiou字符，例如能匹配“hi”中的i。&lt;br&gt;自定义匹配集合就是使用&lt;strong&gt;中括号&lt;/strong&gt;包围字符集合，例如[0-9]匹配所有的正整数，相当于\d,[a-zA-Z]匹配所有的大小写字母。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这里集合中使用了&lt;strong&gt;-&lt;/strong&gt;，只有&lt;strong&gt;-&lt;/strong&gt;在字符组（方括号）内部,并且出现在两个字符之间时,才能表示字符的范围; 如果出字符组的开头,则只能表示&lt;strong&gt;‘-‘&lt;/strong&gt;本身.&lt;br&gt;例如[-az]表示的是匹配’-‘,’a’,’z’这三个字符。&lt;/p&gt;
-&lt;/blockquote&gt;
     
     </summary>
     
